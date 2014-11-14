@@ -13,7 +13,7 @@ module.exports = function(req, res, next) {
         {
             session: false
         },
-        function( err, client, infos ) {
+        function( err, client ) {
             if ( err ) return next( err );
 
             if ( client ) {
