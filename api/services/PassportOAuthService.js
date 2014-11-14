@@ -3,47 +3,35 @@
  * @description Service to manage OAuth authorizations
  */
 
-var passport = require('passport')
-  , BearerStrategy = require('passport-http-bearer').Strategy;
+var passport = require('passport'),
+    BearerStrategy = require('passport-http-bearer').Strategy;
 
 
-var clients = [
-    { 'client_name': 'public-miit-fr', 'client_id': '1234', 'client_secret': '98765432', 'token': 'abcdef', 'roles': [] },
-    { 'client_name': 'secure-miit-fr', 'client_id': '1235', 'client_secret': '98765431', 'token': 'qwerty', 'roles': [ 'TEST_ACCES' ] }
-];
-
-
-// Temporary defined to search an OAuth token
+// Search an OAuth token
 function findByToken( token, cb ) {
     
-    for ( var i = 0, len = clients.length; i < len; i++ ) {
+    Application
+        .findOne({ 'accessToken': token })
+        .exec( function( err, application ) {
+            if( err || !application ) return cb( null, null );
 
-        var client = clients[i];
-    
-        if (client.token === token) {
-    
-            return cb( null, client );
-        }
-    }
-    
-    return cb( null, null );
+            return cb( null, application );
+        } );
 }
 
-// Temporary defined to search an OAuth Client
+// Search an OAuth Client
 function findByClient( clientId, clientSecret, cb ) {
 
-    for (var i = 0, len = clients.length; i < len; i++) {
+    Application
+        .findOne({ 
+            'clientId': clientId,
+            'clientSecret': clientSecret
+         })
+        .exec( function( err, application ) {
+            if( err || !application ) return cb( null, null );
 
-        var client = clients[i];
-    
-        if ( client.client_id === clientId &&
-             client.client_secret === clientSecret ) {
-    
-            return cb( null, client.token );
-        }
-    }
-
-    return cb( null, null );
+            return cb( null, application.accessToken );
+        } );
 }
 
 /**
@@ -55,18 +43,18 @@ passport.use(
 
     new BearerStrategy(
     
-        function(token, done) {
+        function( token, done ) {
     
-            process.nextTick(function () {
+            process.nextTick( function () {
               
-                findByToken(token, function(err, client) {
+                findByToken( token, function(err, application) {
 
                     if ( err ) { return done( err ); }
-                    if ( !client ) { return done( null, false ); }
+                    if ( !application ) { return done( null, false ); }
 
-                    return done( null, client );
-                })
-            });
+                    return done( null, application );
+                } );
+            } );
     }
 ));
 
@@ -84,14 +72,7 @@ module.exports = {
 
         if( typeof cb === 'function' ) {
 
-            findByClient(
-                clientId,
-                clientSecret,
-                function( err, accessToken ) {
-
-                    cb( err, accessToken );
-                }
-            );
+            findByClient( clientId, clientSecret, cb );
         }
     }
 };
