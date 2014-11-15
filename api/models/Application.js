@@ -36,6 +36,11 @@ module.exports = {
     roles : {
         type: 'array',
         required: true
+    },
+
+    deleted: {
+        type: 'boolean',
+        defaultTo: false
     }
   }
 };
