@@ -1,4 +1,10 @@
-
+/**
+ *
+ * AuthorizationController
+ *
+ * @description The controller that handle OAuth request
+ *
+ */
 
 module.exports = {
 
@@ -32,7 +38,7 @@ module.exports = {
         if( grant_type === 'client_credentials' ) {
 
             // Call the service to check credentials
-            PassportOAuthService.findByClient(
+            AuthorizationService.findByClient(
                 client_id,
                 client_secret,
                 function( err, accessToken ) {

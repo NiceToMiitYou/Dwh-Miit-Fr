@@ -1,6 +1,7 @@
 /**
  *
  * @description Service to manage OAuth authorizations
+ *
  */
 
 var passport = require('passport'),
