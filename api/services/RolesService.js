@@ -8,7 +8,6 @@ function getRoles( controller, action ) {
 
     var roles = [];
 
-
     if( controller && action &&
         sails.config.roles[ controller ] &&
         sails.config.roles[ controller ][ action ] ) {

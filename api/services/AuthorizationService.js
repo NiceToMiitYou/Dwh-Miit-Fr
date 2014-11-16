@@ -12,7 +12,9 @@ var passport = require('passport'),
 function findByToken( token, cb ) {
     
     Application
-        .findOne({ 'accessToken': token })
+        .findOne( { 
+            accessToken: token
+        } )
         .exec( function( err, application ) {
             if( err || !application ) return cb( null, null );
 
@@ -22,12 +24,12 @@ function findByToken( token, cb ) {
 
 // Search an OAuth Client
 function findByClient( clientId, clientSecret, cb ) {
-
+    
     Application
-        .findOne({ 
-            'clientId': clientId,
-            'clientSecret': clientSecret
-         })
+        .findOne( { 
+            clientId: clientId,
+            clientSecret: clientSecret
+         } )
         .exec( function( err, application ) {
             if( err || !application ) return cb( null, null );
 
@@ -47,7 +49,7 @@ passport.use(
         function( token, done ) {
     
             process.nextTick( function () {
-              
+                
                 findByToken( token, function(err, application) {
 
                     if ( err ) { return done( err ); }

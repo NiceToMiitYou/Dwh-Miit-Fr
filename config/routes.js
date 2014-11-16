@@ -23,12 +23,14 @@
 var _ = require('lodash');
 
 var authorizationRoutes = require( './routes/authorization.js' );
+var userRoutes = require( './routes/user.js' );
 
 var routes = {
-
+    
 };
 
 module.exports.routes = _.assign(
     routes,
-    authorizationRoutes
+    authorizationRoutes,
+    userRoutes
 );
