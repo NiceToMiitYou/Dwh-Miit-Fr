@@ -1,5 +1,5 @@
 /**
- * ChatRoom.js
+ * Chatroom.js
  *
  * @description :: Representation of chatrooms
  * @docs        :: http://sailsjs.org/#!documentation/models
