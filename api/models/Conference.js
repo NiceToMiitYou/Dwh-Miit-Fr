@@ -14,11 +14,6 @@ module.exports = {
             required: true
         },
 
-        clientName: {
-            type: 'string',
-            required: true
-        },
-
         logo: {
             type: 'text',
             required: true
@@ -27,6 +22,12 @@ module.exports = {
         colorScheme: {
             type: 'text',
             required: true
+        },
+
+        token: {
+            type: 'string',
+            required: true,
+            unique: true
         },
 
         description: {
@@ -45,6 +46,11 @@ module.exports = {
         categories: {
             collection: 'ResourceCategory',
             via: 'conference'
+        },
+
+        client: {
+            model: 'Client',
+            required: true
         }
     }
 };
