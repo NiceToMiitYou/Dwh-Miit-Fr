@@ -18,7 +18,9 @@ module.exports = function done( data ) {
     }
 
     // Set the response to done
-    data.done = true;
+    if ( typeof data.done === 'undefined' ) {
+        data.done = true;
+    }
 
     res.json( data );
 };

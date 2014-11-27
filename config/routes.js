@@ -29,7 +29,7 @@ var routes = {
     
 };
 
-module.exports.routes = _.assign(
+module.exports.routes = _.extend(
     routes,
     authorizationRoutes,
     userRoutes
