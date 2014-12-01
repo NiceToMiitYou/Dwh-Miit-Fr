@@ -31,10 +31,17 @@ module.exports = {
                     user.isCorrectPassword( password, function( result ) {
                         if ( result ) {
 
-                            return res.done( {
-                                exist: true,
-                                connected: true
-                            } );
+                            SessionService
+                                .create( user, conference, function( err, targetLocation ) {
+
+                                    if( err ) return res.notDone();
+
+                                    return res.done( {
+                                        location: targetLocation,
+                                        exist: true,
+                                        connected: true
+                                    } );
+                                } );
                         } else {
 
                             return res.done( {

@@ -24,6 +24,11 @@ module.exports = {
             required: true
         },
 
+        url: {
+            type: 'string',
+            required: true
+        },
+
         token: {
             type: 'string',
             required: true,
