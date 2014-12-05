@@ -7,41 +7,40 @@
 
 module.exports = {
 
-  attributes: {
+    attributes: {
 
-    name : { 
-        type: 'string',
-        unique: true,
-        required: true
-    },
+        name : { 
+            type: 'string',
+            unique: true,
+            required: true
+        },
 
-    clientId : {
-        type: 'string',
-        unique: true,
-        required: true
-    },
+        clientId : {
+            type: 'string',
+            unique: true,
+            required: true
+        },
 
-    clientSecret : {
-        type: 'string',
-        unique: true,
-        required: true
-    },
+        clientSecret : {
+            type: 'string',
+            unique: true,
+            required: true
+        },
 
-    accessToken : {
-        type: 'string',
-        unique: true,
-        required: true
-    },
+        accessToken : {
+            type: 'string',
+            unique: true,
+            required: true
+        },
 
-    roles : {
-        type: 'array',
-        required: true
-    },
+        roles : {
+            type: 'array',
+            required: true
+        },
 
-    deleted: {
-        type: 'boolean',
-        defaultTo: false
+        deleted: {
+            type: 'boolean',
+            defaultTo: false
+        }
     }
-  }
 };
-

@@ -53,6 +53,16 @@ module.exports = {
             via: 'conference'
         },
 
+        quizzes: {
+            collection: 'Quizz',
+            via: 'conference'
+        },
+
+        chatrooms: {
+            collection: 'Chatrooms',
+            via: 'conference'
+        },
+
         client: {
             model: 'Client',
             required: true

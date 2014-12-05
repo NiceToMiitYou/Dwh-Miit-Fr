@@ -18,6 +18,11 @@ module.exports = {
         type: {
             type: 'integer',
             defaultsTo: 1
+        },
+
+        conference: {
+            model: 'Conference',
+            required: true
         }
     }
 };

@@ -35,6 +35,11 @@ module.exports = {
         questions: {
             collection: 'QuestionQuizz',
             via: 'quizz'
+        },
+
+        conference: {
+            model: 'Conference',
+            required: true
         }
     }
 };

@@ -7,22 +7,21 @@
 
 module.exports = {
 
-  attributes: {
+    attributes: {
 
-    token: {
-        type: 'string',
-        required: true
-    },
+        token: {
+            type: 'string',
+            required: true
+        },
 
-    user: {
-        model: 'User',
-        required: true
-    },
+        user: {
+            model: 'User',
+            required: true
+        },
 
-    conference: {
-        model: 'Conference',
-        required: true
+        conference: {
+            model: 'Conference',
+            required: true
+        }
     }
-  }
 };
-

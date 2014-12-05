@@ -7,27 +7,26 @@
 
 module.exports = {
 
-  attributes: {
+    attributes: {
 
-    name: {
-        type: 'string',
-        required: true
-    },
+        name: {
+            type: 'string',
+            required: true
+        },
 
-    logo: {
-        type: 'text',
-        defaultTo: ''
-    },
+        logo: {
+            type: 'text',
+            defaultTo: ''
+        },
 
-    colorScheme: {
-        type: 'text',
-        defaultTo: ''
-    },
+        colorScheme: {
+            type: 'text',
+            defaultTo: ''
+        },
 
-    conferences: {
-        collection: 'Conference',
-        via: 'client'
+        conferences: {
+            collection: 'Conference',
+            via: 'client'
+        }
     }
-  }
 };
-
