@@ -1,9 +1,9 @@
 /**
-* Session.js
-*
-* @description :: Model that handle Session.
-* @docs        :: http://sailsjs.org/#!documentation/models
-*/
+ * Session.js
+ *
+ * @description :: Model that handle Session.
+ * @docs        :: http://sailsjs.org/#!documentation/models
+ */
 
 module.exports = {
 
