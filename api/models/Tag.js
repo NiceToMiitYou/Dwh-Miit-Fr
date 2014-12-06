@@ -13,6 +13,11 @@ module.exports = {
             type: 'string',
             required: true,
             minLength: 1
+        },
+
+        conference: {
+            model: 'Conference',
+            required: true
         }
     }
 };

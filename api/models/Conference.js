@@ -59,7 +59,12 @@ module.exports = {
         },
 
         chatrooms: {
-            collection: 'Chatrooms',
+            collection: 'Chatroom',
+            via: 'conference'
+        },
+
+        tracks: {
+            collection: 'Track',
             via: 'conference'
         },
 

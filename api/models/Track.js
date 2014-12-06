@@ -25,6 +25,11 @@ module.exports = {
         user: {
             model: 'User',
             required: true
+        },
+
+        conference: {
+            model: 'Conference',
+            required: true
         }
     }
 };
