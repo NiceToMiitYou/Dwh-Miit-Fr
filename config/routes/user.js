@@ -6,6 +6,11 @@
 
 var routes = {
 
+    'POST /api/user/connect': {
+        controller: 'UserController',
+        action: 'connect'
+    },
+
     'POST /api/user/login': {
         controller: 'UserController',
         action: 'login'

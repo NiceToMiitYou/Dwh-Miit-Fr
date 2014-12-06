@@ -9,6 +9,35 @@
 module.exports = {
 
     /**
+     * `UserController.connect()`
+     */
+    connect: function( req, res ) {
+
+        var conference = req.param( 'conference' ),
+            token      = req.param( 'token' );
+
+        if( conference && token ) {
+            
+            Session
+                .findOne( {
+                    conference: conference,
+                    token:      token
+                } )
+                .populate( 'user' )
+                .exec( function( err, session ) {
+                    if ( err || !session ) return res.notDone();
+
+                    return res.done( {
+                        user: session.user
+                    } );
+                } );
+        } else {
+
+            return res.notDone();
+        }
+    },
+
+    /**
      * `UserController.login()`
      */
     login: function( req, res ) {
