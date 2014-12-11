@@ -39,8 +39,8 @@ module.exports = {
     DwhMySQL: {
   
         host: 'localhost',
-        user: 'miitDwhUserQLF',
-        password: 'P0w3rFu11P455',
+        user: 'root',
+        password: '',
         database: 'fr_miit_dwh'
     }
   }
