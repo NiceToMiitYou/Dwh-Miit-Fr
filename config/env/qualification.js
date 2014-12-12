@@ -43,5 +43,7 @@ module.exports = {
         password: '',
         database: 'fr_miit_dwh'
     }
-  }
+  },
+
+  port: 80
 };
