@@ -138,7 +138,7 @@ CREATE TABLE `conference` (
 
 LOCK TABLES `conference` WRITE;
 /*!40000 ALTER TABLE `conference` DISABLE KEYS */;
-INSERT INTO `conference` VALUES ('Conférence de test','http://127.0.0.1:4242/images/logodark.png','html {}','http://127.0.0.1:8080/','ConfTest','Conférence de test','[]',1,1,NULL,NULL);
+INSERT INTO `conference` VALUES ('Conférence de test','http://auth.qlf.priv.miit.fr/images/logodark.png','html {}','http://app.qlf.priv.miit.fr/','ConfTest','Conférence de test','[]',1,1,NULL,NULL);
 /*!40000 ALTER TABLE `conference` ENABLE KEYS */;
 UNLOCK TABLES;
 
