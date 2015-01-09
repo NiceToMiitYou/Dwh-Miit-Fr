@@ -16,12 +16,12 @@ module.exports = {
 
         logo: {
             type: 'text',
-            defaultTo: ''
+            defaultsTo: ''
         },
 
         colorScheme: {
             type: 'text',
-            defaultTo: ''
+            defaultsTo: ''
         },
 
         conferences: {
