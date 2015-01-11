@@ -31,7 +31,7 @@
     "sails": "~0.10.5",
     "sails-disk": "~0.10.0",
     "sails-mongo": "~0.10.0",
-    "sails-mysql": "~0.10.0"
+    "sails-mysql": "^0.10.9"
   },
   "devDependencies": {
     "supertest": "~0.13.0",
