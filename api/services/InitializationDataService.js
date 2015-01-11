@@ -11,6 +11,8 @@ function create( cb ) {
 
     async.waterfall( [
 
+        createUsers,
+
         createClient,
 
         createConference,
@@ -37,6 +39,38 @@ function create( cb ) {
 
 }
 
+// Create users
+function createUsers( cb ) {
+
+    User
+        .create( [ {
+            mail: 'viewer@itevents.fr',
+            password: 'itevents',
+            roles: [ 'ROLE_LOGIN', 'ROLE_VIEWER' ]
+        }, {
+            mail: 'master@itevents.fr',
+            password: 'itevents',
+            roles: [ 'ROLE_LOGIN', 'ROLE_MASTER' ]
+        }, {
+            mail: 'live@itevents.fr',
+            password: 'itevents',
+            roles: [ 'ROLE_LOGIN', 'ROLE_LIVE' ]
+        }, {
+            mail: 'all@itevents.fr',
+            password: 'itevents',
+            roles: [ 'ROLE_LOGIN', 'ROLE_LIVE', 'ROLE_MASTER', 'ROLE_VIEWER' ]
+        } ] )
+        .exec(
+            function( err, created ){
+                if( err ) {
+
+                    throw err;
+                }
+
+                cb();
+            });
+}
+
 // Create the client
 function createClient( cb ) {
 
@@ -56,7 +90,6 @@ function createClient( cb ) {
                 cb();
             });
 }
-
 
 // Create the conference
 function createConference( cb ) {
