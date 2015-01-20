@@ -142,33 +142,43 @@ function createSlides( cb ) {
 
     Slide
         .create( [ {
+            id: 1,
             content: '<img src="/images/slides/Diapositive01.png">',
             presentation: 1
         }, {
+            id: 2,
             content: '<img src="/images/slides/Diapositive02.png">',
             presentation: 1
         }, {
+            id: 3,
             content: '<img src="/images/slides/Diapositive03.png">',
             presentation: 1
         }, {
+            id: 4,
             content: '<img src="/images/slides/Diapositive04.png">',
             presentation: 1
         }, {
+            id: 5,
             content: '<img src="/images/slides/Diapositive05.png">',
             presentation: 1
         }, {
+            id: 6,
             content: '<img src="/images/slides/Diapositive06.png">',
             presentation: 1
         }, {
+            id: 7,
             content: '<img src="/images/slides/Diapositive07.png">',
             presentation: 1
         }, {
+            id: 8,
             content: '<img src="/images/slides/Diapositive08.png">',
             presentation: 1
         }, {
+            id: 9,
             content: '<img src="/images/slides/Diapositive09.png">',
             presentation: 1
         }, {
+            id: 10,
             content: '<img src="/images/slides/Diapositive10.png">',
             presentation: 1
         } ] )
