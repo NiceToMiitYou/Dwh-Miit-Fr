@@ -2,7 +2,7 @@ var environment = 'development';
 
 function getUrl() { 
     return ( environment === 'qualification' ) ?
-                'http://auth.qlf.priv.miit.fr/' :
+                'http://app.qlf.priv.miit.fr/' :
                 'http://127.0.0.1:8080/';
 };
 
