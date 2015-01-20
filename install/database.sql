@@ -4,7 +4,7 @@ USE `fr_miit_dwh`;
 --
 -- Host: 127.0.0.1    Database: fr_miit_dwh
 -- ------------------------------------------------------
--- Server version	5.5.39-MariaDB
+-- Server version 5.5.39-MariaDB
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -31,7 +31,7 @@ CREATE TABLE `application` (
   `accessToken` varchar(255) DEFAULT NULL,
   `roles` longtext,
   `deleted` tinyint(1) DEFAULT NULL,
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `createdAt` datetime DEFAULT NULL,
   `updatedAt` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
@@ -39,7 +39,7 @@ CREATE TABLE `application` (
   UNIQUE KEY `clientId` (`clientId`),
   UNIQUE KEY `clientSecret` (`clientSecret`),
   UNIQUE KEY `accessToken` (`accessToken`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -48,8 +48,7 @@ CREATE TABLE `application` (
 
 LOCK TABLES `application` WRITE;
 /*!40000 ALTER TABLE `application` DISABLE KEYS */;
-INSERT INTO `application` VALUES ('auth-miit-fr','zOdljM1OP2spjlvliiQ20shFub3vZoteiwdQ','GP0ibqWFBYME0IClw3qajpEfdAkb0TteG3xcgSkf2hVALf2XyhwzKz75tauVyV1oIRkYCEpUgSMnBiwTLiRXO9Pjxevz0IYtjSyCF2hbI31mz68PLIZXImPe6IwijNzV','qVZDWicwFjh49O9PQUKJ8Ur8r3YKSrx3YqUll2L6','[\'ROLE_TRUSTED_CLIENT\']',0,1,NULL,NULL);
-INSERT INTO `application` VALUES ('app-miit-fr','jwTP77L2MPDQngVdDYeXJaCM5y1hejO1RL39','h3vlfsTx7BtpCAM7qJQbWv0oHz0W0GlpW14vLWgplsCSSeMVcPDQA5DvQ73d6btXwMMkN6RZIhBIH6sa8VH0FuXXGhkICZXEoVvMIeaLKUC0dSEAE87HldbCrVtyRrYS','x0otR1PEMiv1uvZ8WSq52GzzO4BShWw286OdgGAg','[\'ROLE_TRUSTED_CLIENT\']',0,2,NULL,NULL);
+INSERT INTO `application` VALUES ('auth-miit-fr','zOdljM1OP2spjlvliiQ20shFub3vZoteiwdQ','GP0ibqWFBYME0IClw3qajpEfdAkb0TteG3xcgSkf2hVALf2XyhwzKz75tauVyV1oIRkYCEpUgSMnBiwTLiRXO9Pjxevz0IYtjSyCF2hbI31mz68PLIZXImPe6IwijNzV','qVZDWicwFjh49O9PQUKJ8Ur8r3YKSrx3YqUll2L6','[\'ROLE_TRUSTED_CLIENT\']',0,1,NULL,NULL),('app-miit-fr','jwTP77L2MPDQngVdDYeXJaCM5y1hejO1RL39','h3vlfsTx7BtpCAM7qJQbWv0oHz0W0GlpW14vLWgplsCSSeMVcPDQA5DvQ73d6btXwMMkN6RZIhBIH6sa8VH0FuXXGhkICZXEoVvMIeaLKUC0dSEAE87HldbCrVtyRrYS','x0otR1PEMiv1uvZ8WSq52GzzO4BShWw286OdgGAg','[\'ROLE_TRUSTED_CLIENT\']',0,2,NULL,NULL);
 /*!40000 ALTER TABLE `application` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -64,7 +63,7 @@ CREATE TABLE `chatroom` (
   `name` varchar(255) DEFAULT NULL,
   `type` int(11) DEFAULT NULL,
   `conference` int(11) DEFAULT NULL,
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `createdAt` datetime DEFAULT NULL,
   `updatedAt` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
@@ -91,11 +90,11 @@ CREATE TABLE `client` (
   `name` varchar(255) DEFAULT NULL,
   `logo` longtext,
   `colorScheme` longtext,
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `createdAt` datetime DEFAULT NULL,
   `updatedAt` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -104,7 +103,6 @@ CREATE TABLE `client` (
 
 LOCK TABLES `client` WRITE;
 /*!40000 ALTER TABLE `client` DISABLE KEYS */;
-INSERT INTO `client` VALUES ('ITEvents','http://auth.qlf.priv.miit.fr/images/logodark.png','html {}',1,NULL,NULL);
 /*!40000 ALTER TABLE `client` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -124,12 +122,12 @@ CREATE TABLE `conference` (
   `description` longtext,
   `restrictions` longtext,
   `client` int(11) DEFAULT NULL,
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `createdAt` datetime DEFAULT NULL,
   `updatedAt` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `token` (`token`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -138,7 +136,6 @@ CREATE TABLE `conference` (
 
 LOCK TABLES `conference` WRITE;
 /*!40000 ALTER TABLE `conference` DISABLE KEYS */;
-INSERT INTO `conference` VALUES ('Conférence de test','http://auth.qlf.priv.miit.fr/images/logodark.png','html {}','http://app.qlf.priv.miit.fr/','ConfTest','Conférence de test','[]',1,1,NULL,NULL);
 /*!40000 ALTER TABLE `conference` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -156,7 +153,7 @@ CREATE TABLE `presentation` (
   `startTime` datetime DEFAULT NULL,
   `endTime` datetime DEFAULT NULL,
   `conference` int(11) DEFAULT NULL,
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `createdAt` datetime DEFAULT NULL,
   `updatedAt` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
@@ -184,7 +181,7 @@ CREATE TABLE `questionquizz` (
   `required` tinyint(1) DEFAULT NULL,
   `type` int(11) DEFAULT NULL,
   `quizz` int(11) DEFAULT NULL,
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `createdAt` datetime DEFAULT NULL,
   `updatedAt` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
@@ -210,7 +207,7 @@ DROP TABLE IF EXISTS `questionquizzanswer`;
 CREATE TABLE `questionquizzanswer` (
   `answer` varchar(255) DEFAULT NULL,
   `question` int(11) DEFAULT NULL,
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `createdAt` datetime DEFAULT NULL,
   `updatedAt` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
@@ -234,7 +231,7 @@ DROP TABLE IF EXISTS `questionquizzanswer_users__user_quizzanswers`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `questionquizzanswer_users__user_quizzanswers` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `questionquizzanswer_users` int(11) DEFAULT NULL,
   `user_quizzAnswers` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
@@ -261,7 +258,7 @@ CREATE TABLE `questionslide` (
   `question` varchar(255) DEFAULT NULL,
   `type` int(11) DEFAULT NULL,
   `slide` int(11) DEFAULT NULL,
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `createdAt` datetime DEFAULT NULL,
   `updatedAt` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
@@ -287,7 +284,7 @@ DROP TABLE IF EXISTS `questionslideanswer`;
 CREATE TABLE `questionslideanswer` (
   `answer` varchar(255) DEFAULT NULL,
   `question` int(11) DEFAULT NULL,
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `createdAt` datetime DEFAULT NULL,
   `updatedAt` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
@@ -311,7 +308,7 @@ DROP TABLE IF EXISTS `questionslideanswer_users__user_slideanswers`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `questionslideanswer_users__user_slideanswers` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `questionslideanswer_users` int(11) DEFAULT NULL,
   `user_slideAnswers` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
@@ -341,7 +338,7 @@ CREATE TABLE `quizz` (
   `startTime` datetime DEFAULT NULL,
   `endTime` datetime DEFAULT NULL,
   `conference` int(11) DEFAULT NULL,
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `createdAt` datetime DEFAULT NULL,
   `updatedAt` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
@@ -368,7 +365,7 @@ CREATE TABLE `resource` (
   `name` varchar(255) DEFAULT NULL,
   `path` longtext,
   `category` int(11) DEFAULT NULL,
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `createdAt` datetime DEFAULT NULL,
   `updatedAt` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
@@ -392,7 +389,7 @@ DROP TABLE IF EXISTS `resource_slides__slide_resources`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `resource_slides__slide_resources` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `resource_slides` int(11) DEFAULT NULL,
   `slide_resources` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
@@ -419,7 +416,7 @@ CREATE TABLE `resourcecategory` (
   `name` varchar(255) DEFAULT NULL,
   `isVisible` tinyint(1) DEFAULT NULL,
   `conference` int(11) DEFAULT NULL,
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `createdAt` datetime DEFAULT NULL,
   `updatedAt` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
@@ -446,7 +443,7 @@ CREATE TABLE `session` (
   `token` varchar(255) DEFAULT NULL,
   `user` int(11) DEFAULT NULL,
   `conference` int(11) DEFAULT NULL,
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `createdAt` datetime DEFAULT NULL,
   `updatedAt` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
@@ -477,7 +474,7 @@ CREATE TABLE `slide` (
   `type` int(11) DEFAULT NULL,
   `presentation` int(11) DEFAULT NULL,
   `question` int(11) DEFAULT NULL,
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `createdAt` datetime DEFAULT NULL,
   `updatedAt` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
@@ -503,7 +500,7 @@ DROP TABLE IF EXISTS `tag`;
 CREATE TABLE `tag` (
   `name` varchar(255) DEFAULT NULL,
   `conference` int(11) DEFAULT NULL,
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `createdAt` datetime DEFAULT NULL,
   `updatedAt` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
@@ -532,7 +529,7 @@ CREATE TABLE `track` (
   `end` datetime DEFAULT NULL,
   `user` int(11) DEFAULT NULL,
   `conference` int(11) DEFAULT NULL,
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `createdAt` datetime DEFAULT NULL,
   `updatedAt` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
@@ -564,12 +561,12 @@ CREATE TABLE `user` (
   `password` varchar(255) DEFAULT NULL,
   `mail` varchar(255) DEFAULT NULL,
   `roles` longtext,
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `createdAt` datetime DEFAULT NULL,
   `updatedAt` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `mail` (`mail`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -578,7 +575,6 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (NULL,NULL,NULL,NULL,NULL,'$2a$10$4F7BvLni40EQmJvatS51KuPJb7m4sbIVmkaS98zGPM35tBeq0fSby','viewer@itevents.fr','[\"ROLE_LOGIN\",\"ROLE_VIEWER\"]',1,'2014-12-11 23:54:28','2014-12-11 23:54:28'),(NULL,NULL,NULL,NULL,NULL,'$2a$10$Kjsb0uGMWRnPjuGaA8ilhulsjs3bqmvEAEXKdvLaA13dsOwiBbrCG','master@itevents.fr','[\"ROLE_LOGIN\",\"ROLE_MASTER\"]',2,'2014-12-11 23:55:39','2014-12-11 23:55:39'),(NULL,NULL,NULL,NULL,NULL,'$2a$10$uqop70yziTxN9z7JtSpq0uYDrJEsPpOcA3GjJfa80jmmbxxWWXGcO','live@itevents.fr','[\"ROLE_LOGIN\",\"ROLE_LIVE\"]',3,'2014-12-11 23:56:10','2014-12-11 23:56:10'),(NULL,NULL,NULL,NULL,NULL,'$2a$10$qJ6HdNdUjLf.di6LqkzFLODQkn37FAiz9D47aQdjKmIe5lq7ReFJa','admin@itevents.fr','[\"ROLE_LOGIN\",\"ROLE_ADMIN\"]',4,'2014-12-11 23:56:42','2014-12-11 23:56:42');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -591,4 +587,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-12-12  0:11:26
+-- Dump completed on 2015-01-20  1:55:36
