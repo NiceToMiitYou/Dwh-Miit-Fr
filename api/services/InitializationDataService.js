@@ -96,9 +96,9 @@ function createConference( cb ) {
 
     Conference
         .create({
-            name: 'ITEvents test',
+            name: 'Conférence Miit',
             token: 'ConfTest',
-            description: 'ITEvents vous présente sa conférence de test.',
+            description: 'ITEvents vous présente sa conférence de test grâce à Miit.',
             colorScheme: 'html {}',
             url: getUrl(),
             logo: getUrl() + 'images/logodark.png',
@@ -248,7 +248,7 @@ function createTags( cb ) {
             name: 'Politique',
             conference: 1
         }, {
-            name: 'Inovation',
+            name: 'Innovation',
             conference: 1
         }, {
             name: 'Flexibilité',
@@ -377,7 +377,7 @@ function createQuizzQuestions( cb ) {
             type: 1,
             conference: 1
         }, {
-            question: 'Est-ce que vous voulez répondre à plusieurs réponses?',
+            question: 'Est-ce que vous voulez choisir plusieurs réponses?',
             quizz: 1,
             required: true,
             type: 2,
