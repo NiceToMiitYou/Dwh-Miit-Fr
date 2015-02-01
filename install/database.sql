@@ -443,6 +443,7 @@ CREATE TABLE `session` (
   `token` varchar(255) DEFAULT NULL,
   `user` int(11) DEFAULT NULL,
   `conference` int(11) DEFAULT NULL,
+  `expire` datetime DEFAULT NULL,
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `createdAt` datetime DEFAULT NULL,
   `updatedAt` datetime DEFAULT NULL,

@@ -21,7 +21,10 @@ module.exports = {
             Session
                 .findOne( {
                     conference: conference,
-                    token:      token
+                    token:      token,
+                    expire: {
+                        '>':    new Date()
+                    }
                 } )
                 .populate( 'user' )
                 .exec( function( err, session ) {

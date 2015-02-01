@@ -22,6 +22,15 @@ module.exports = {
         conference: {
             model: 'Conference',
             required: true
+        },
+
+        expire: {
+            type: 'datetime',
+            defaultsTo: function() {
+                return new Date(
+                    ( new Date() ).getTime() + 5 * 60 * 1000
+                ); // Now + 5 minutes
+            }
         }
     }
 };
