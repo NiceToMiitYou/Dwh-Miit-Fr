@@ -33,8 +33,8 @@ module.exports.connections = {
     DwhMySQL: {
         adapter: 'sails-mysql',
         host: 'localhost',
-        user: 'dwh-miit',
-        password: 'dwh-miit',
-        database: 'dwh-miit'
+        user: 'fr_miit_dwh',
+        password: 'fr_miit_dwh',
+        database: 'fr_miit_dwh'
     }
 };
