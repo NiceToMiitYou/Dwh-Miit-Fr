@@ -28,7 +28,7 @@
     "passport": "^0.2.1",
     "passport-http-bearer": "^1.0.1",
     "rc": "^0.5.5",
-    "sails": "^0.11.0-rc9",
+    "sails": "^0.11.0-rc10",
     "sails-disk": "^0.10.7",
     "sails-mongo": "^0.10.5",
     "sails-mysql": "^0.10.11"
