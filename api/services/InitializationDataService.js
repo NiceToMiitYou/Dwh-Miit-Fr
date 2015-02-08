@@ -221,27 +221,6 @@ function createTags( cb ) {
 
     Tag
         .create([ {
-            name: 'ITEvents',
-            conference: 1
-        }, {
-            name: 'Conference',
-            conference: 1
-        }, {
-            name: 'Prestation',
-            conference: 1
-        }, {
-            name: 'Important',
-            conference: 1
-        }, {
-            name: 'Presentation',
-            conference: 1
-        }, {
-            name: 'Question',
-            conference: 1
-        }, {
-            name: 'Temps-réel',
-            conference: 1
-        }, {
             name: 'Social',
             conference: 1
         }, {
@@ -249,9 +228,6 @@ function createTags( cb ) {
             conference: 1
         }, {
             name: 'Innovation',
-            conference: 1
-        }, {
-            name: 'Flexibilité',
             conference: 1
         }, {
             name: 'Economie',
