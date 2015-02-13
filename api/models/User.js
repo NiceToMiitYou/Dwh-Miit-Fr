@@ -63,9 +63,12 @@ module.exports = {
 
         isCorrectPassword: function( password, cb ) {
             bcrypt.compare( password, this.password, function( err, res ) {
-                if ( err ) cb( false );
+                if ( err ) {
 
-                cb( res );
+                    return cb( false );
+                }
+
+                return cb( res );
             } );
         },
 
@@ -83,12 +86,12 @@ module.exports = {
             bcrypt.hash( user.password, salt, function( err, hash ) {
 
                 if ( err ) {
-                    cb( err );
-                } else {
 
-                    user.password = hash;
-                    cb( null, user );
+                    return cb( err );
                 }
+            
+                user.password = hash;
+                return cb( null, user );
             } );
         } );
     }
