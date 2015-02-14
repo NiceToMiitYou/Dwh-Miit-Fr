@@ -4,7 +4,7 @@
  *
  */
 
-var passport = require('passport'),
+var passport       = require('passport'),
     BearerStrategy = require('passport-http-bearer').Strategy;
 
 
@@ -16,7 +16,10 @@ function findByToken( token, cb ) {
             accessToken: token
         } )
         .exec( function( err, application ) {
-            if( err || !application ) return cb( null, null );
+            if( err || !application ) {
+
+                return cb( null, null );
+            }
 
             return cb( null, application );
         } );
@@ -31,7 +34,10 @@ function findByClient( clientId, clientSecret, cb ) {
             clientSecret: clientSecret
          } )
         .exec( function( err, application ) {
-            if( err || !application ) return cb( null, null );
+            if( err || !application ) {
+            
+                return cb( null, null );
+            }
 
             return cb( null, application.accessToken );
         } );
@@ -52,8 +58,15 @@ passport.use(
                 
                 findByToken( token, function(err, application) {
 
-                    if ( err ) { return done( err ); }
-                    if ( !application ) { return done( null, false ); }
+                    if ( err ) {
+
+                        return done( err );
+                    }
+                    
+                    if ( !application ) {
+
+                        return done( null, false );
+                    }
 
                     return done( null, application );
                 } );

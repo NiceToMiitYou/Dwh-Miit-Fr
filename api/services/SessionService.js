@@ -4,13 +4,21 @@
  *
  */
 
+var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ' +
+                 'abcdefghijklmnopqrstuvwxyz' +
+                 '0123456789' +
+                 '$-_.+!*';
+
 function generateId( length )
 {
-    var id = '';
-    var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789$-_.+!*';
+    var id         = '';
 
     for( var i = 0; i < length; i++ ) {
-        id += characters.charAt( Math.floor( Math.random() * characters.length ) );
+        id += characters.charAt(
+            Math.floor(
+                Math.random() * characters.length
+            )
+        );
     }
 
     return id;
@@ -26,7 +34,7 @@ module.exports = {
 
                 // Initialize variable
                 var targetLocation = actualConference.url,
-                    sessionId = generateId( 16 );
+                    sessionId      = generateId( 16 );
 
                 // Generate redirection URL
                 if( targetLocation.slice( -1 ) !== '/' ) {
@@ -47,7 +55,7 @@ module.exports = {
 
                         if ( typeof cb === 'function' ) {
 
-                            cb( errConf || errSession, targetLocation );
+                            return cb( errConf || errSession, targetLocation );
                         }
                     } );
             } );

@@ -1,6 +1,6 @@
 /**
  *
- * QuiestionSlideAnswerController
+ * QuestionSlideAnswerController
  *
  * @description The controller that handle answer of slide's questions request
  *

@@ -28,7 +28,10 @@ module.exports = {
                 } )
                 .populate( 'user' )
                 .exec( function( err, session ) {
-                    if ( err || !session ) return res.notDone();
+                    if ( err || !session ) {
+
+                        return res.notDone();
+                    }
 
                     return res.done( {
                         user: session.user
@@ -54,11 +57,17 @@ module.exports = {
             User
                 .findOneByMail( mail )
                 .exec( function( err, user ) {
-                    if ( err ) return res.notDone();
+                    if ( err ) {
 
-                    if ( !user ) return res.done( {
-                        exist: false
-                    } );
+                        return res.notDone();
+                    }
+
+                    if ( !user ) {
+
+                        return res.done( {
+                            exist: false
+                        } );
+                    }
 
                     user.isCorrectPassword( password, function( result ) {
                         if ( result ) {
@@ -66,7 +75,10 @@ module.exports = {
                             SessionService
                                 .create( user, conference, function( err, targetLocation ) {
 
-                                    if( err ) return res.notDone();
+                                    if( err ) {
+                                    
+                                        return res.notDone();
+                                    }
 
                                     return res.done( {
                                         location: targetLocation,
@@ -106,7 +118,10 @@ module.exports = {
                     roles: [ 'ROLE_LOGIN', 'ROLE_VIEWER' ]
                 } )
                 .exec( function( err, user ) {
-                    if ( err ) return res.notDone();
+                    if ( err ) {
+                    
+                        return res.notDone();
+                    }
 
                     return res.done( {
                         user: user

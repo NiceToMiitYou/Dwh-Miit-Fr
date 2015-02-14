@@ -4,7 +4,7 @@ function getUrl() {
     return ( environment === 'qualification' ) ?
                 'http://app.qlf.priv.miit.fr/' :
                 'http://127.0.0.1:8080/';
-};
+}
 
 // Create all data
 function create( cb ) {
