@@ -1,9 +1,24 @@
 var environment = 'development';
 
-function getUrl() { 
-    return ( environment === 'qualification' ) ?
-                'http://app.qlf.priv.miit.fr/' :
-                'http://127.0.0.1:8080/';
+function getUrl() {
+    var url = 'http://127.0.0.1:8080/';
+
+    switch( environment ) {
+
+        case 'qualification':
+           url = 'http://app.qlf.priv.miit.fr/';
+           break;
+
+        case 'staging':
+           url = 'http://app.stg.priv.miit.fr/';
+           break;
+
+        case 'production':
+           url = 'http://app.miit.fr/';
+           break;
+    }
+
+    return url;
 }
 
 // Create all data
@@ -98,7 +113,7 @@ function createConference( cb ) {
         .create( {
             id: 1,
             name: 'Conférence Miit',
-            token: 'ConfTest',
+            token: 'DemoSNCF',
             description: 'ITEvents vous présente sa conférence de test grâce à Miit.',
             colorScheme: 'html {}',
             url: getUrl(),
@@ -199,7 +214,7 @@ function createSlides( cb ) {
 function createChatrooms( cb ) {
 
     Chatroom
-        .create([ {
+        .create( [ {
             id: 1,
             name: 'ITEvents test',
             conference: 1
@@ -208,7 +223,7 @@ function createChatrooms( cb ) {
             name: 'Support',
             type: 2,
             conference: 1
-        } ])
+        } ] )
         .exec(
             function( err, created ){
                 if( err ) {
@@ -490,8 +505,10 @@ module.exports = {
 
     initialize: function( cb ) {
 
-        if( sails.config.environment === 'development' ||
-            sails.config.environment === 'qualification' ) {
+        if( sails.config.environment === 'development'   ||
+            sails.config.environment === 'qualification' ||
+            sails.config.environment === 'staging'       ||
+            sails.config.environment === 'production' ) {
             
             environment = sails.config.environment;
 

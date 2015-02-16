@@ -1,5 +1,5 @@
 {
-  "name": "Dwh",
+  "name": "dwh-miit-fr",
   "private": true,
   "version": "0.0.0",
   "description": "Application Data WareHouse, web services",
@@ -44,7 +44,7 @@
   },
   "scripts": {
     "postinstall": "bash ./install/post-install.sh",
-    "start": "node app.js lift",
+    "start": "forever app.js lift",
     "debug": "node debug app.js",
     "test": "grunt test",
     "beautify": "echo 'js-beautify --config js-beautify.json -r -f ./api/**/*.js ./config/**/*.js ./test/**/*.js' | zsh"
