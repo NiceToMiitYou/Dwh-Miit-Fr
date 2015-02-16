@@ -95,7 +95,8 @@ function createClient( cb ) {
 function createConference( cb ) {
 
     Conference
-        .create({
+        .create( {
+            id: 1,
             name: 'Conférence Miit',
             token: 'ConfTest',
             description: 'ITEvents vous présente sa conférence de test grâce à Miit.',
@@ -104,7 +105,7 @@ function createConference( cb ) {
             logo: getUrl() + 'images/logodark.png',
             restrictions: [],
             client: 1
-        })
+        } )
         .exec(
             function( err, created ) {
                 if( err ) {
@@ -121,6 +122,7 @@ function createPresentations( cb ) {
 
     Presentation
         .create( [ {
+            id: 1,
             name: 'ITEvents presentation',
             description: 'ITEvents vous présente sa présentation de test avec Karim Bakrimi, Pascal Fossé et Jordan Cortet.',
             authors: 'Cortet Jordan, Tacyniak Boris',
@@ -198,9 +200,11 @@ function createChatrooms( cb ) {
 
     Chatroom
         .create([ {
+            id: 1,
             name: 'ITEvents test',
             conference: 1
         }, {
+            id: 2,
             name: 'Support',
             type: 2,
             conference: 1
@@ -221,15 +225,19 @@ function createTags( cb ) {
 
     Tag
         .create([ {
+            id: 1,
             name: 'Social',
             conference: 1
         }, {
+            id: 2,
             name: 'Politique',
             conference: 1
         }, {
+            id: 3,
             name: 'Innovation',
             conference: 1
         }, {
+            id: 4,
             name: 'Economie',
             conference: 1
         } ])
@@ -249,16 +257,20 @@ function createResourcesCategories( cb ) {
 
     ResourceCategory
         .create( [ {
+            id: 1,
             name: 'NotVisible',
             isVisible: false,
             conference: 1
         }, {
+            id: 2,
             name: 'Photos',
             conference: 1
         }, {
+            id: 3,
             name: 'Vidéos',
             conference: 1
         }, {
+            id: 4,
             name: 'Rapports',
             conference: 1
         } ] )
@@ -279,30 +291,37 @@ function createResources( cb ) {
 
     Resource
         .create( [ {
+            id: 1,
             name: 'NotVisible',
             path: 'http://img.wikinut.com/img/gycf69_-6rv_5fol/jpeg/0/Best-Friends-Img-Src%3AImage%3A-FreeDigitalPhotos.net.jpeg',
             category: 1
         }, {
+            id: 2,
             name: 'Photo #1',
             path: 'http://captainkimo.com/wp-content/uploads/2010/09/hdr-photo-1.jpg',
             category: 2
         }, {
+            id: 3,
             name: 'Photo #2',
             path: 'http://captainkimo.com/wp-content/uploads/2010/09/hdr-photo-1.jpg',
             category: 2
         }, {
+            id: 4,
             name: 'Vidéo #1',
             path: 'https://www.youtube.com/watch?v=y6Sxv-sUYtM',
             category: 3
         }, {
+            id: 5,
             name: 'Rapport #1',
             path: 'http://www.nestle.com/asset-library/documents/library/documents/annual_reports/2013-annual-report-en.pdf',
             category: 4
         }, {
+            id: 6,
             name: 'Rapport #2',
             path: 'http://www.nestle.com/asset-library/documents/library/documents/annual_reports/2013-annual-report-en.pdf',
             category: 4
         }, {
+            id: 7,
             name: 'Rapport #3',
             path: 'http://www.nestle.com/asset-library/documents/library/documents/annual_reports/2013-annual-report-en.pdf',
             category: 4
@@ -323,10 +342,12 @@ function createQuizzes( cb ) {
 
     Quizz
         .create([ {
-            name: 'Quizz test',
+            id: 1,
+            name: 'Quizz numéro 1',
             description: 'Ceci est le questionnaire de test, il permet de tester les différentes fonctionnalités du quizz.',
             conference: 1
         }, {
+            id: 2,
             name: 'Second quizz',
             description: 'Ceci est le deuxième questionnaire de test, il permet de tester les différentes fonctionnalités du quizz.',
             conference: 1
@@ -347,24 +368,28 @@ function createQuizzQuestions( cb ) {
 
     QuestionQuizz
         .create([ {
+            id: 1,
             question: 'Est-ce que ce formulaire vous convient?',
             quizz: 1,
             required: true,
             type: 1,
             conference: 1
         }, {
+            id: 2,
             question: 'Est-ce que vous voulez choisir plusieurs réponses?',
             quizz: 1,
             required: true,
             type: 2,
             conference: 1
         }, {
+            id: 3,
             question: 'Est-ce que ce vous aimez cette conférence?',
             quizz: 2,
             required: true,
             type: 1,
             conference: 1
         }, {
+            id: 4,
             question: 'Qu\'est-ce qui pourrait vous aidez?',
             quizz: 2,
             type: 2,
@@ -386,51 +411,67 @@ function createQuizzQuestionAnswers( cb ) {
 
     QuestionQuizzAnswer
         .create([ {
+            id: 1,
             answer: 'Absolument',
             question: 1
         }, {
+            id: 2,
             answer: 'Pas du tout',
             question: 1
         }, {
+            id: 3,
             answer: 'Avec',
             question: 2
         }, {
+            id: 4,
             answer: 'Grand',
             question: 2
         }, {
+            id: 5,
             answer: 'Plaisir',
             question: 2
         }, {
+            id: 6,
             answer: 'Non',
             question: 2
         }, {
+            id: 7,
             answer: 'J\'adore',
             question: 3
         }, {
+            id: 8,
             answer: 'J\'ai vu mieux',
             question: 3
         }, {
+            id: 9,
             answer: 'Je regrette d\'être venu',
             question: 3
         }, {
+            id: 10,
             answer: 'Plus de choix',
             question: 4
         }, {
+            id: 11,
             answer: 'Plus d\'interactivité',
             question: 4
         }, {
+            id: 12,
             answer: 'Plus de fonctionnalités',
             question: 4
         }, {
+            id: 13,
             answer: 'Plus de présentations',
             question: 4
         }, {
+            id: 14,
             answer: 'Plus de conférence',
             question: 4
         }, {
+            id: 15,
             answer: 'Plus de personnes',
             question: 4
         }, {
+            id: 16,
             answer: 'Tout est parfait',
             question: 4
         } ])
