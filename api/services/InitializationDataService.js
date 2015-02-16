@@ -320,7 +320,7 @@ function createResources( cb ) {
         }, {
             id: 3,
             name: 'Photo #2',
-            path: 'http://captainkimo.com/wp-content/uploads/2010/09/hdr-photo-1.jpg',
+            path: 'http://www.sncf.com/ressources/imagecache/vsct_media_slideshow_image/images/packshot_nouvelletenue_694x380_carousel.png',
             category: 2
         }, {
             id: 4,
@@ -330,16 +330,6 @@ function createResources( cb ) {
         }, {
             id: 5,
             name: 'Rapport #1',
-            path: 'http://www.nestle.com/asset-library/documents/library/documents/annual_reports/2013-annual-report-en.pdf',
-            category: 4
-        }, {
-            id: 6,
-            name: 'Rapport #2',
-            path: 'http://www.nestle.com/asset-library/documents/library/documents/annual_reports/2013-annual-report-en.pdf',
-            category: 4
-        }, {
-            id: 7,
-            name: 'Rapport #3',
             path: 'http://www.nestle.com/asset-library/documents/library/documents/annual_reports/2013-annual-report-en.pdf',
             category: 4
         } ] )
