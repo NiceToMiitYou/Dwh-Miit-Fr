@@ -91,6 +91,7 @@ function createClient( cb ) {
 
     Client
         .create({
+            id: 1,
             name: 'ITEvents',
             colorScheme: 'html {}',
             logo: getUrl() + '/images/logodark.png'
