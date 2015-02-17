@@ -139,9 +139,9 @@ function createPresentations( cb ) {
     Presentation
         .create( [ {
             id: 1,
-            name: 'ITEvents presentation',
-            description: 'ITEvents vous présente sa présentation de test avec Karim Bakrimi, Pascal Fossé et Jordan Cortet.',
-            authors: 'Cortet Jordan, Tacyniak Boris',
+            name: 'Nice to Miit you',
+            description: 'Améliorez l\'interactivité de vos conférences grâce à l\'application Miit d\'ITEvents.',
+            authors: 'Cortet Jordan',
             conference: 1
         } ] )
         .exec(
