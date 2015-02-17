@@ -12,17 +12,20 @@
 
 module.exports = {
 
-  connections: {
+    connections: {
 
-    DwhMySQL: {
+        DwhMySQL: {
+
+            host: 'localhost',
+            user: 'root',
+            password: '',
+            database: 'fr_miit_dwh'
+        }
+    },
+
+    port: 80,
   
-        host: 'localhost',
-        user: 'root',
-        password: '',
-        database: 'fr_miit_dwh'
+    log: {
+        level: "silent"
     }
-  },
-
-  port: 80
-
 };
