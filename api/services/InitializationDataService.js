@@ -287,7 +287,7 @@ function createResourcesCategories( cb ) {
             conference: 1
         }, {
             id: 4,
-            name: 'Rapports'
+            name: 'Rapports',
             isVisible: false,
             conference: 1
         } ] )
