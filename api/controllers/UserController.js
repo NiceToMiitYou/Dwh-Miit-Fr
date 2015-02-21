@@ -13,20 +13,19 @@ module.exports = {
      */
     connect: function( req, res ) {
 
-        var conference = req.param( 'conference' ),
-            token      = req.param( 'token' );
+        var token = req.param( 'token' );
 
-        if( conference && token ) {
+        if( token ) {
             
             Session
                 .findOne( {
-                    conference: conference,
-                    token:      token,
+                    token:  token,
                     expire: {
-                        '>':    new Date()
+                        '>': new Date()
                     }
                 } )
                 .populate( 'user' )
+                .populate( 'conference' )
                 .exec( function( err, session ) {
                     if ( err || !session ) {
 
@@ -34,7 +33,8 @@ module.exports = {
                     }
 
                     return res.done( {
-                        user: session.user
+                        conference: session.conference.id,
+                        user:       session.user
                     } );
                 } );
         } else {
@@ -113,9 +113,9 @@ module.exports = {
 
             User
                 .create( {
-                    mail: mail,
+                    mail:     mail,
                     password: password,
-                    roles: [ 'ROLE_LOGIN', 'ROLE_VIEWER' ]
+                    roles:    [ 'ROLE_LOGIN', 'ROLE_VIEWER' ]
                 } )
                 .exec( function( err, user ) {
                     if ( err ) {

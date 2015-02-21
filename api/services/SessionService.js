@@ -4,14 +4,13 @@
  *
  */
 
-var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ' +
-                 'abcdefghijklmnopqrstuvwxyz' +
+var characters = 'abcdefghijklmnopqrstuvwxyz' +
                  '0123456789' +
                  '$-_.+!*';
 
 function generateId( length )
 {
-    var id         = '';
+    var id = '';
 
     for( var i = 0; i < length; i++ ) {
         id += characters.charAt(
@@ -34,7 +33,7 @@ module.exports = {
 
                 // Initialize variable
                 var targetLocation = actualConference.url,
-                    sessionId      = generateId( 16 );
+                    sessionId      = generateId( 128 );
 
                 // Generate redirection URL
                 if( targetLocation.slice( -1 ) !== '/' ) {
@@ -47,9 +46,9 @@ module.exports = {
                 // Create Session
                 Session
                     .create( {
-                        user: user.id,
+                        user:       user.id,
                         conference: conference,
-                        token: sessionId
+                        token:      sessionId
                     } )
                     .exec( function( errSession, session ) {
 

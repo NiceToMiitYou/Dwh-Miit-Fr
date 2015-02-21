@@ -28,8 +28,8 @@ module.exports = {
             type: 'datetime',
             defaultsTo: function() {
                 return new Date(
-                    ( new Date() ).getTime() + 5 * 60 * 1000
-                ); // Now + 5 minutes
+                    ( new Date() ).getTime() + 2 * 60 * 1000
+                ); // Now + 2 minutes
             }
         }
     }
