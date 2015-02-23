@@ -4,7 +4,7 @@ USE `fr_miit_dwh`;
 --
 -- Host: 127.0.0.1    Database: fr_miit_dwh
 -- ------------------------------------------------------
--- Server version 5.5.39-MariaDB
+-- Server version 5.5.41-MariaDB
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -39,7 +39,7 @@ CREATE TABLE `application` (
   UNIQUE KEY `clientId` (`clientId`),
   UNIQUE KEY `clientSecret` (`clientSecret`),
   UNIQUE KEY `accessToken` (`accessToken`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -71,15 +71,6 @@ CREATE TABLE `chatroom` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `chatroom`
---
-
-LOCK TABLES `chatroom` WRITE;
-/*!40000 ALTER TABLE `chatroom` DISABLE KEYS */;
-/*!40000 ALTER TABLE `chatroom` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `client`
 --
 
@@ -96,15 +87,6 @@ CREATE TABLE `client` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `client`
---
-
-LOCK TABLES `client` WRITE;
-/*!40000 ALTER TABLE `client` DISABLE KEYS */;
-/*!40000 ALTER TABLE `client` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `conference`
@@ -131,15 +113,6 @@ CREATE TABLE `conference` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `conference`
---
-
-LOCK TABLES `conference` WRITE;
-/*!40000 ALTER TABLE `conference` DISABLE KEYS */;
-/*!40000 ALTER TABLE `conference` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `presentation`
 --
 
@@ -161,15 +134,6 @@ CREATE TABLE `presentation` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `presentation`
---
-
-LOCK TABLES `presentation` WRITE;
-/*!40000 ALTER TABLE `presentation` DISABLE KEYS */;
-/*!40000 ALTER TABLE `presentation` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `questionquizz`
 --
 
@@ -189,15 +153,6 @@ CREATE TABLE `questionquizz` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `questionquizz`
---
-
-LOCK TABLES `questionquizz` WRITE;
-/*!40000 ALTER TABLE `questionquizz` DISABLE KEYS */;
-/*!40000 ALTER TABLE `questionquizz` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `questionquizzanswer`
 --
 
@@ -215,15 +170,6 @@ CREATE TABLE `questionquizzanswer` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `questionquizzanswer`
---
-
-LOCK TABLES `questionquizzanswer` WRITE;
-/*!40000 ALTER TABLE `questionquizzanswer` DISABLE KEYS */;
-/*!40000 ALTER TABLE `questionquizzanswer` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `questionquizzanswer_users__user_quizzanswers`
 --
 
@@ -237,15 +183,6 @@ CREATE TABLE `questionquizzanswer_users__user_quizzanswers` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `questionquizzanswer_users__user_quizzanswers`
---
-
-LOCK TABLES `questionquizzanswer_users__user_quizzanswers` WRITE;
-/*!40000 ALTER TABLE `questionquizzanswer_users__user_quizzanswers` DISABLE KEYS */;
-/*!40000 ALTER TABLE `questionquizzanswer_users__user_quizzanswers` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `questionslide`
@@ -266,15 +203,6 @@ CREATE TABLE `questionslide` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `questionslide`
---
-
-LOCK TABLES `questionslide` WRITE;
-/*!40000 ALTER TABLE `questionslide` DISABLE KEYS */;
-/*!40000 ALTER TABLE `questionslide` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `questionslideanswer`
 --
 
@@ -292,15 +220,6 @@ CREATE TABLE `questionslideanswer` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `questionslideanswer`
---
-
-LOCK TABLES `questionslideanswer` WRITE;
-/*!40000 ALTER TABLE `questionslideanswer` DISABLE KEYS */;
-/*!40000 ALTER TABLE `questionslideanswer` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `questionslideanswer_users__user_slideanswers`
 --
 
@@ -314,15 +233,6 @@ CREATE TABLE `questionslideanswer_users__user_slideanswers` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `questionslideanswer_users__user_slideanswers`
---
-
-LOCK TABLES `questionslideanswer_users__user_slideanswers` WRITE;
-/*!40000 ALTER TABLE `questionslideanswer_users__user_slideanswers` DISABLE KEYS */;
-/*!40000 ALTER TABLE `questionslideanswer_users__user_slideanswers` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `quizz`
@@ -346,15 +256,6 @@ CREATE TABLE `quizz` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `quizz`
---
-
-LOCK TABLES `quizz` WRITE;
-/*!40000 ALTER TABLE `quizz` DISABLE KEYS */;
-/*!40000 ALTER TABLE `quizz` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `resource`
 --
 
@@ -373,15 +274,6 @@ CREATE TABLE `resource` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `resource`
---
-
-LOCK TABLES `resource` WRITE;
-/*!40000 ALTER TABLE `resource` DISABLE KEYS */;
-/*!40000 ALTER TABLE `resource` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `resource_slides__slide_resources`
 --
 
@@ -395,15 +287,6 @@ CREATE TABLE `resource_slides__slide_resources` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `resource_slides__slide_resources`
---
-
-LOCK TABLES `resource_slides__slide_resources` WRITE;
-/*!40000 ALTER TABLE `resource_slides__slide_resources` DISABLE KEYS */;
-/*!40000 ALTER TABLE `resource_slides__slide_resources` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `resourcecategory`
@@ -424,13 +307,22 @@ CREATE TABLE `resourcecategory` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `resourcecategory`
+-- Table structure for table `role`
 --
 
-LOCK TABLES `resourcecategory` WRITE;
-/*!40000 ALTER TABLE `resourcecategory` DISABLE KEYS */;
-/*!40000 ALTER TABLE `resourcecategory` ENABLE KEYS */;
-UNLOCK TABLES;
+DROP TABLE IF EXISTS `role`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `role` (
+  `conference` int(11) DEFAULT NULL,
+  `user` int(11) DEFAULT NULL,
+  `roles` longtext,
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `createdAt` datetime DEFAULT NULL,
+  `updatedAt` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Table structure for table `session`
@@ -450,15 +342,6 @@ CREATE TABLE `session` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `session`
---
-
-LOCK TABLES `session` WRITE;
-/*!40000 ALTER TABLE `session` DISABLE KEYS */;
-/*!40000 ALTER TABLE `session` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `slide`
@@ -483,15 +366,6 @@ CREATE TABLE `slide` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `slide`
---
-
-LOCK TABLES `slide` WRITE;
-/*!40000 ALTER TABLE `slide` DISABLE KEYS */;
-/*!40000 ALTER TABLE `slide` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `tag`
 --
 
@@ -507,15 +381,6 @@ CREATE TABLE `tag` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `tag`
---
-
-LOCK TABLES `tag` WRITE;
-/*!40000 ALTER TABLE `tag` DISABLE KEYS */;
-/*!40000 ALTER TABLE `tag` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `track`
@@ -538,15 +403,6 @@ CREATE TABLE `track` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `track`
---
-
-LOCK TABLES `track` WRITE;
-/*!40000 ALTER TABLE `track` DISABLE KEYS */;
-/*!40000 ALTER TABLE `track` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `user`
 --
 
@@ -561,7 +417,6 @@ CREATE TABLE `user` (
   `avatar` longtext,
   `password` varchar(255) DEFAULT NULL,
   `mail` varchar(255) DEFAULT NULL,
-  `roles` longtext,
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `createdAt` datetime DEFAULT NULL,
   `updatedAt` datetime DEFAULT NULL,
@@ -569,15 +424,6 @@ CREATE TABLE `user` (
   UNIQUE KEY `mail` (`mail`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `user`
---
-
-LOCK TABLES `user` WRITE;
-/*!40000 ALTER TABLE `user` DISABLE KEYS */;
-/*!40000 ALTER TABLE `user` ENABLE KEYS */;
-UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -588,4 +434,5 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-01-20  1:55:36
+-- Dump completed on 2015-02-23 19:39:21
+

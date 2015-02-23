@@ -28,6 +28,8 @@ function create( cb ) {
 
         createUsers,
 
+        createRoles,
+
         createClient,
 
         createConference,
@@ -59,21 +61,49 @@ function createUsers( cb ) {
 
     User
         .create( [ {
+            id: 1,
             mail: 'viewer@itevents.fr',
-            password: 'itevents',
-            roles: [ 'ROLE_LOGIN', 'ROLE_VIEWER' ]
+            password: 'itevents'
         }, {
+            id: 2,
             mail: 'master@itevents.fr',
-            password: 'itevents',
-            roles: [ 'ROLE_LOGIN', 'ROLE_MASTER' ]
+            password: 'itevents'
         }, {
+            id: 3,
             mail: 'live@itevents.fr',
-            password: 'itevents',
-            roles: [ 'ROLE_LOGIN', 'ROLE_LIVE' ]
+            password: 'itevents'
         }, {
-            mail: 'all@itevents.fr',
-            password: 'itevents',
-            roles: [ 'ROLE_LOGIN', 'ROLE_LIVE', 'ROLE_MASTER', 'ROLE_VIEWER' ]
+            id: 4,
+            mail: 'demo@itevents.fr',
+            password: 'itevents'
+        } ] )
+        .exec(
+            function( err, created ){
+                if( err ) {
+
+                    throw err;
+                }
+
+                cb();
+            });
+}
+
+// Create roles
+function createRoles( cb ) {
+
+    Role
+        .create( [ {
+            user: 2,
+            conference: 1,
+            roles: [ 'ROLE_MASTER' ]
+        }, {
+            user: 3,
+            conference: 1,
+            roles: [ 'ROLE_LIVE' ]
+        }, {
+            user: 4,
+            conference: 1,
+            roles: [ 'ROLE_MASTER', 'ROLE_LIVE' ]
         } ] )
         .exec(
             function( err, created ){
@@ -90,14 +120,14 @@ function createUsers( cb ) {
 function createClient( cb ) {
 
     Client
-        .create({
+        .create( {
             id: 1,
             name: 'ITEvents',
             colorScheme: 'html {}',
             logo: getUrl() + '/images/logodark.png'
-        })
+        } )
         .exec(
-            function( err, created ){
+            function( err, created ) {
                 if( err ) {
 
                     throw err;

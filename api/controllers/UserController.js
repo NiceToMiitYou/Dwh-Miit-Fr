@@ -32,10 +32,25 @@ module.exports = {
                         return res.notDone();
                     }
 
-                    return res.done( {
+                    var defaultRes =  {
                         conference: session.conference.id,
-                        user:       session.user
-                    } );
+                        user:       session.user,
+                        roles:      [ 'ROLE_LOGIN', 'ROLE_VIEWER' ] 
+                    };
+
+                    Role
+                        .findOne( {
+                            conference: session.conference.id,
+                            user:       session.user.id
+                        } )
+                        .exec( function( errRole, role ) {
+                            if( !errRole && role ) {
+
+                                defaultRes.roles = _.union( defaultRes.roles, role.roles );
+                            }
+
+                            return res.done( defaultRes );
+                        } );
                 } );
         } else {
 

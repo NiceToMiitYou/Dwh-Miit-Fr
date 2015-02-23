@@ -58,7 +58,8 @@ module.exports = {
         },
 
         roles: {
-            type: 'array'
+            collection: 'Role',
+            via: 'user'
         },
 
         isCorrectPassword: function( password, cb ) {

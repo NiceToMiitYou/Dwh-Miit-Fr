@@ -68,6 +68,11 @@ module.exports = {
             via: 'conference'
         },
 
+        roles: {
+            collection: 'Role',
+            via: 'conference'
+        },
+
         client: {
             model: 'Client',
             required: true
