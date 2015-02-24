@@ -264,6 +264,7 @@ DROP TABLE IF EXISTS `resource`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `resource` (
   `name` varchar(255) DEFAULT NULL,
+  `type` varchar(255) DEFAULT NULL,
   `path` longtext,
   `category` int(11) DEFAULT NULL,
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
