@@ -12,19 +12,5 @@
 
 module.exports = {
 
-  /***************************************************************************
-   * Set the port in the development environment to 1337                     *
-   ***************************************************************************/
-
-  port: 1337,
-
-  /***************************************************************************
-   * Set the default database connection for models in the development       *
-   * environment (see config/connections.js and config/models.js )           *
-   ***************************************************************************/
-
-  // models: {
-  //   connection: 'someMongodbServer'
-  // }
-
+    port: 1337
 };
