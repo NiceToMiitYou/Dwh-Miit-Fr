@@ -9,21 +9,21 @@
  * http://sailsjs.org/#/documentation/reference/sails.config/sails.config.bootstrap.html
  */
 
-var logo = require( 'fs' )
-            .readFileSync( 'logo.txt', 'utf8' )
-            .toString()
-            .split( '\n' );
-
 module.exports.bootstrap = function(cb) {
 
     // Change the logo of sails
     sails.log.ship = function() {
+        
+        var logo = require( 'fs' )
+                    .readFileSync( 'logo.txt', 'utf8' )
+                    .toString()
+                    .split( '\n' );
 
         for ( var line in logo ) {
             sails.log.info( logo[ line ] );
         }
     };
-    
+
     // It's very important to trigger this callback method when you are finished
     // with the bootstrap!  (otherwise your server will never lift, since it's waiting on the bootstrap)
 
