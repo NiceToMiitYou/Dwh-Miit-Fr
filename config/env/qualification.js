@@ -12,6 +12,11 @@
 
 module.exports = {
 
+    application: {
+
+        sqs: 'qlf-miit-fr'
+    },
+
     connections: {
 
         DwhMySQL: {

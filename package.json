@@ -6,6 +6,7 @@
   "keywords": [],
   "readmeFilename": "README.md",
   "dependencies": {
+    "aws-sdk": "^2.1.14",
     "bcrypt": "^0.8.1",
     "ejs": "^0.8.8",
     "grunt": "^0.4.2",
@@ -21,16 +22,10 @@
     "grunt-sails-linker": "^0.9.6",
     "grunt-sync": "0.0.8",
     "include-all": "~0.1.3",
-    "less": "^1.7.5",
-    "lodash": "^2.4.1",
-    "nodemailer": "^1.3.0",
-    "nodemailer-smtp-transport": "^0.1.13",
     "passport": "^0.2.1",
     "passport-http-bearer": "^1.0.1",
     "rc": "^0.5.5",
     "sails": "^0.11.0-rc10",
-    "sails-disk": "^0.10.7",
-    "sails-mongo": "^0.10.5",
     "sails-mysql": "^0.10.11"
   },
   "devDependencies": {

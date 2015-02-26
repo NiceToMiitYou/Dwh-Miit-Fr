@@ -12,5 +12,10 @@
 
 module.exports = {
 
+    application: {
+
+        sqs: 'dev-miit-fr'
+    },
+
     port: 1337
 };

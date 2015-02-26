@@ -12,6 +12,11 @@
 
 module.exports = {
 
+    application: {
+
+        sqs: 'prd-miit-fr'
+    },
+
     connections: {
 
         DwhMySQL: {
