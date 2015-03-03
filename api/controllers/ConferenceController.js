@@ -32,6 +32,7 @@ module.exports = {
                 conference.exported = true;
                 conference.save();
 
+                // Ask for export
                 QueueService.exportConference( conference.id, function( err ) {
 
                     if( err ) {
@@ -72,6 +73,7 @@ module.exports = {
                 conference.imported = true;
                 conference.save();
 
+                // Ask for import
                 QueueService.importConference( conference.id, function( err ) {
 
                     if( err ) {
