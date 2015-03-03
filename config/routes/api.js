@@ -6,6 +6,11 @@
 
 var routes = {
 
+    'POST /api/conference/export': {
+        controller: 'ConferenceController',
+        action: 'export'
+    },
+
     'POST /api/conference/import': {
         controller: 'ConferenceController',
         action: 'import'

@@ -47,6 +47,50 @@ module.exports = {
 
     /**
      *
+     * QueueService.exportConference()
+     *
+     * @description Send the message to export a conference
+     *
+     */
+    exportConference: function( conference, cb ) {
+
+        // If correct syntax
+        if( conference && queueUrl ) {
+
+            // Default params
+            var params = {
+                MessageBody: JSON.stringify( {
+                    action:     'export',
+                    conference: conference
+                } ),
+                QueueUrl:    queueUrl
+            };
+
+            // Send the message
+            sqs.sendMessage( params, function( err, data ) {
+                if ( err ) {
+                    sails.log.debug( err );
+                }
+
+                // Handle callback
+                if( typeof cb === 'function') {
+
+                    cb( err );
+                }
+            });
+
+        } else {
+
+            // Handle callback
+            if( typeof cb === 'function') {
+
+                cb( new Error('No conference provided.') );
+            }
+        }
+    }
+
+    /**
+     *
      * QueueService.importConference()
      *
      * @description Send the message to import a conference
