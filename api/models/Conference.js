@@ -35,6 +35,16 @@ module.exports = {
             unique: true
         },
 
+        imported: {
+            type: 'boolean',
+            defaultTo: false
+        },
+
+        exported: {
+            type: 'boolean',
+            defaultTo: false
+        },
+
         description: {
             type: 'text'
         },

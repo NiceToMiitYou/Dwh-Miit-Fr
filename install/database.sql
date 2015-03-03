@@ -104,6 +104,8 @@ CREATE TABLE `conference` (
   `colorScheme` longtext,
   `url` varchar(255) DEFAULT NULL,
   `token` varchar(255) DEFAULT NULL,
+  `imported` tinyint(1) DEFAULT NULL,
+  `exported` tinyint(1) DEFAULT NULL,
   `description` longtext,
   `restrictions` longtext,
   `client` int(11) DEFAULT NULL,

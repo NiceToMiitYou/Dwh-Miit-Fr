@@ -10,31 +10,81 @@ module.exports = {
 
     export: function( req, res ) {
 
-        var conference = +req.param( 'conference' );
+        var conferenceId = +req.param( 'conference' );
 
-        QueueService.exportConference( conference, function( err ) {
+        if( !conferenceId ) {
 
-            if( err ) {
+            return res.notDone();
+        }
 
-                return res.notDone();
-            }
+        Conference
+            .findOne( conferenceId )
+            .exec( function( err, conference ) {
+                if(  err                 ||
+                    !conference          ||
+                    !conference.imported ||
+                     conference.exported ) {
 
-            return res.done();
-        } );
+                    return res.notDone();
+                }
+
+                // Lock the status
+                conference.exported = true;
+                conference.save();
+
+                QueueService.exportConference( conference.id, function( err ) {
+
+                    if( err ) {
+
+                        // On fail, reset the status
+                        conference.exported = false;
+                        conference.save();
+
+                        return res.notDone();
+                    }
+
+                    return res.done();
+                } );
+            } );
     },
 
     import: function( req, res ) {
 
-        var conference = +req.param( 'conference' );
+        var conferenceId = +req.param( 'conference' );
 
-        QueueService.importConference( conference, function( err ) {
+        if( !conferenceId ) {
 
-            if( err ) {
+            return res.notDone();
+        }
 
-                return res.notDone();
-            }
+        Conference
+            .findOne( conferenceId )
+            .exec( function( err, conference ) {
+                if(  err                 || 
+                    !conference          ||
+                     conference.imported ||
+                     conference.exported ) {
 
-            return res.done();
-        } );
+                    return res.notDone();
+                }
+
+                // Lock the status
+                conference.imported = true;
+                conference.save();
+
+                QueueService.importConference( conference.id, function( err ) {
+
+                    if( err ) {
+
+                        // On fail, reset the status
+                        conference.imported = false;
+                        conference.save();
+
+                        return res.notDone();
+                    }
+
+                    return res.done();
+                } );
+            } );
     }
 };
