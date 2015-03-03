@@ -87,7 +87,7 @@ module.exports = {
                 cb( new Error('No conference provided.') );
             }
         }
-    }
+    },
 
     /**
      *
