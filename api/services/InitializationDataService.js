@@ -506,7 +506,7 @@ function createQuizzQuestionAnswers( cb ) {
             question: 4
         }, {
             id: 14,
-            answer: 'Plus de conférence',
+            answer: 'Plus de conférences',
             question: 4
         }, {
             id: 15,
