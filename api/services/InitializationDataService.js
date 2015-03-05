@@ -385,7 +385,7 @@ function createQuizzes( cb ) {
     Quizz
         .create([ {
             id: 1,
-            name: 'Quizz numéro 1',
+            name: 'Premier quizz',
             description: 'Ceci est le questionnaire de test, il permet de tester les différentes fonctionnalités du quizz.',
             conference: 1
         }, {
