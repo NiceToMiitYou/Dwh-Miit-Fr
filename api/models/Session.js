@@ -19,8 +19,8 @@ module.exports = {
             required: true
         },
 
-        conference: {
-            model: 'Conference',
+        data: {
+            type: 'json',
             required: true
         },
 

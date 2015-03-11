@@ -19,38 +19,45 @@ module.exports = {
             
             Session
                 .findOne( {
-                    token:  token,
+                    token:   token,
                     expire: {
                         '>': new Date()
                     }
                 } )
                 .populate( 'user' )
-                .populate( 'conference' )
                 .exec( function( err, session ) {
                     if ( err || !session ) {
 
                         return res.notDone();
                     }
 
-                    var defaultRes =  {
-                        conference: session.conference.id,
-                        user:       session.user,
-                        roles:      [ 'ROLE_LOGIN', 'ROLE_VIEWER' ] 
+                    var defaultRes = {
+                        data:  session.data,
+                        user:  session.user,
+                        roles: [ 'ROLE_LOGIN', 'ROLE_VIEWER' ] 
                     };
 
-                    Role
-                        .findOne( {
-                            conference: session.conference.id,
-                            user:       session.user.id
-                        } )
-                        .exec( function( errRole, role ) {
-                            if( !errRole && role ) {
+                    if( session.data.conference &&
+                        session.data.conference.id ) {
 
-                                defaultRes.roles = _.union( defaultRes.roles, role.roles );
-                            }
+                        Role
+                            .findOne( {
+                                conference: session.data.conference.id,
+                                user:       session.user.id
+                            } )
+                            .exec( function( errRole, role ) {
+                                if( !errRole && role ) {
 
-                            return res.done( defaultRes );
-                        } );
+                                    defaultRes.roles = _.union( defaultRes.roles, role.roles );
+                                }
+
+                                return res.done( defaultRes );
+                            } );
+
+                    } else {
+
+                        return res.done( defaultRes );
+                    }
                 } );
         } else {
 
@@ -63,9 +70,9 @@ module.exports = {
      */
     login: function( req, res ) {
 
-        var conference = req.param( 'conference' ),
-            mail       = req.param( 'mail' ),
-            password   = req.param( 'password' );
+        var data     = req.param( 'data' ),
+            mail     = req.param( 'mail' ),
+            password = req.param( 'password' );
 
         if( mail ) {
 
@@ -88,23 +95,22 @@ module.exports = {
                         if ( result ) {
 
                             SessionService
-                                .create( user, conference, function( err, targetLocation ) {
-
+                                .create( user, data, function( err, targetLocation ) {
                                     if( err ) {
                                     
                                         return res.notDone();
                                     }
 
                                     return res.done( {
-                                        location: targetLocation,
-                                        exist: true,
+                                        location:  targetLocation,
+                                        exist:     true,
                                         connected: true
                                     } );
                                 } );
                         } else {
 
                             return res.done( {
-                                exist: true,
+                                exist:     true,
                                 connected: false
                             } );
                         }

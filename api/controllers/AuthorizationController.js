@@ -19,12 +19,14 @@ module.exports = {
     getToken: function( req, res ) {
 
         // Get all REQUIRED field of the token request
-        var client_id = req.param('client_id');
-        var client_secret = req.param('client_secret');
-        var grant_type = req.param('grant_type');
+        var client_id     = req.param('client_id'),
+            client_secret = req.param('client_secret'),
+            grant_type    = req.param('grant_type');
 
         // Check them
-        if ( !grant_type || !client_id || !client_secret) {
+        if ( !grant_type ||
+             !client_id  ||
+             !client_secret ) {
 
             // Malformed request
             res.status( 400 );
