@@ -76,6 +76,10 @@ function createUsers( cb ) {
             id: 4,
             mail: 'demo@itevents.fr',
             password: 'itevents'
+        }, {
+            id: 5,
+            mail: 'sncf@itevents.fr',
+            password: 'itevents'
         } ] )
         .exec(
             function( err, created ){
@@ -104,6 +108,10 @@ function createRoles( cb ) {
             user: 4,
             conference: 1,
             roles: [ 'ROLE_MASTER', 'ROLE_LIVE' ]
+        }, {
+            user: 5,
+            conference: 2,
+            roles: [ 'ROLE_MASTER', 'ROLE_LIVE' ]
         } ] )
         .exec(
             function( err, created ){
@@ -120,12 +128,17 @@ function createRoles( cb ) {
 function createClient( cb ) {
 
     Client
-        .create( {
+        .create( [ {
             id: 1,
             name: 'ITEvents',
             colorScheme: 'html {}',
             logo: getUrl() + '/images/logodark.png'
-        } )
+        }, {
+            id: 2,
+            name: 'SNCF',
+            colorScheme: 'html {}',
+            logo: '//cdn.miit.fr/static/logo/bec3edd9646e394e6b2e4d6dcb29fed6.png'
+        } ] )
         .exec(
             function( err, created ) {
                 if( err ) {
@@ -141,7 +154,7 @@ function createClient( cb ) {
 function createConference( cb ) {
 
     Conference
-        .create( {
+        .create( [ {
             id: 1,
             name: 'Conférence Miit',
             token: 'DemoSNCF',
@@ -151,7 +164,17 @@ function createConference( cb ) {
             logo: getUrl() + 'images/logodark.png',
             restrictions: [],
             client: 1
-        } )
+        }, {
+            id: 2,
+            name: 'Conférence SNCF',
+            token: 'SNCF240315',
+            description: 'Bienvenue sur la conférence du 24 mars 2015.',
+            colorScheme: 'html {}',
+            url: getUrl(),
+            logo: '//cdn.miit.fr/static/logo/bec3edd9646e394e6b2e4d6dcb29fed6.png',
+            restrictions: [],
+            client: 2
+        } ] )
         .exec(
             function( err, created ) {
                 if( err ) {
@@ -173,6 +196,12 @@ function createPresentations( cb ) {
             description: 'Améliorez l\'interactivité de vos conférences grâce à l\'application Miit d\'ITEvents.',
             authors: 'Cortet Jordan',
             conference: 1
+        }, {
+            id: 2,
+            name: 'Sans titre',
+            description: 'Description en attente',
+            authors: 'En attente',
+            conference: 2
         } ] )
         .exec(
             function( err, created ){
@@ -229,6 +258,10 @@ function createSlides( cb ) {
             id: 10,
             content: '<img src="/images/slides/Diapositive10.png">',
             presentation: 1
+        }, {
+            id: 11,
+            content: '<img src="/images/slides/Diapositive01.png">',
+            presentation: 2
         } ] )
         .exec(
             function( err, created ){
@@ -247,13 +280,13 @@ function createChatrooms( cb ) {
     Chatroom
         .create( [ {
             id: 1,
-            name: 'ITEvents test',
+            name: 'ITEvents',
             conference: 1
         }, {
             id: 2,
-            name: 'Support',
-            type: 2,
-            conference: 1
+            name: 'SNCF',
+            type: 1,
+            conference: 2
         } ] )
         .exec(
             function( err, created ){
@@ -270,7 +303,7 @@ function createChatrooms( cb ) {
 function createTags( cb ) {
 
     Tag
-        .create([ {
+        .create( [ {
             id: 1,
             name: 'Social',
             conference: 1
@@ -286,7 +319,11 @@ function createTags( cb ) {
             id: 4,
             name: 'Economie',
             conference: 1
-        } ])
+        }, {
+            id: 5,
+            name: 'Social',
+            conference: 2
+        } ] )
         .exec(
             function( err, created ){
                 if( err ) {
@@ -320,6 +357,10 @@ function createResourcesCategories( cb ) {
             name: 'Rapports',
             isVisible: false,
             conference: 1
+        }, {
+            id: 5,
+            name: 'Sans titre',
+            conference: 2
         } ] )
         .exec(
             function( err, created ){
@@ -393,6 +434,11 @@ function createQuizzes( cb ) {
             name: 'Second quizz',
             description: 'Ceci est le deuxième questionnaire de test, il permet de tester les différentes fonctionnalités du quizz.',
             conference: 1
+        }, {
+            id: 3,
+            name: 'Test de connaissances',
+            description: 'Bienvenue sur le test de connaissances du 24 mars 2015.',
+            conference: 2
         } ])
         .exec(
             function( err, created ){
@@ -436,6 +482,135 @@ function createQuizzQuestions( cb ) {
             quizz: 2,
             type: 2,
             conference: 1
+        }, {
+            id: 5,
+            question: 'Avez-vous une bonne connaissances de l\'organisation SNCF concernant:',
+            quizz: 3,
+            type: 0,
+            conference: 2
+        }, {
+            id: 6,
+            question: '1 - La réforme ferroviaire?',
+            extra: {
+                small: true
+            },
+            quizz: 3,
+            type: 1,
+            conference: 2
+        }, {
+            id: 7,
+            question: '2 - L\'organisation des SI?',
+            extra: {
+                small: true
+            },
+            quizz: 3,
+            type: 1,
+            conference: 2
+        }, {
+            id: 8,
+            question: '3 - L\'organisation DSP?',
+            extra: {
+                small: true
+            },
+            quizz: 3,
+            type: 1,
+            conference: 2
+        }, {
+            id: 9,
+            question: '4 - L\'organisation ENVU?',
+            extra: {
+                small: true
+            },
+            quizz: 3,
+            type: 1,
+            conference: 2
+        }, {
+            id: 10,
+            question: '5 - L\'organisation et fonctionnement TM?',
+            extra: {
+                small: true
+            },
+            quizz: 3,
+            type: 1,
+            conference: 2
+        }, {
+            id: 11,
+            question: 'Vous sentez vous concernés/impactés par les réorganisations en cours?',
+            quizz: 3,
+            type: 1,
+            conference: 2
+        }, {
+            id: 12,
+            question: 'Avez-vous une bonne connaissance des offres au catalogue DSP SI TS:',
+            quizz: 3,
+            type: 0,
+            conference: 2
+        }, {
+            id: 13,
+            question: '1 - SC2',
+            extra: {
+                small: true
+            },
+            quizz: 3,
+            type: 3,
+            conference: 2
+        }, {
+            id: 14,
+            question: '2 - Support',
+            extra: {
+                small: true
+            },
+            quizz: 3,
+            type: 3,
+            conference: 2
+        }, {
+            id: 15,
+            question: '3 - Cloud / Hybridation',
+            extra: {
+                small: true
+            },
+            quizz: 3,
+            type: 3,
+            conference: 2
+        }, {
+            id: 16,
+            question: '4 - PCIR',
+            extra: {
+                small: true
+            },
+            quizz: 3,
+            type: 3,
+            conference: 2
+        }, {
+            id: 17,
+            question: 'Avez-vous une bonne connaissance des offres TM?',
+            quizz: 3,
+            type: 3,
+            conference: 2
+        }, {
+            id: 18,
+            question: 'Quels sont vos difficultés / irritants (relations fournisseurs, manque de visibilité, ...)?',
+            quizz: 3,
+            type: 3,
+            conference: 2
+        }, {
+            id: 19,
+            question: 'Quels sont les axes à développer (communication interne/externe, coordination inter offre, mise en qualité, ...)?',
+            quizz: 3,
+            type: 3,
+            conference: 2
+        }, {
+            id: 20,
+            question: 'Quelles thématiques souhaitez vous aborder?',
+            quizz: 3,
+            type: 3,
+            conference: 2
+        }, {
+            id: 21,
+            question: 'Divers, boîte à idées, suggestions...',
+            quizz: 3,
+            type: 3,
+            conference: 2
         } ])
         .exec(
             function( err, created ){
@@ -516,6 +691,125 @@ function createQuizzQuestionAnswers( cb ) {
             id: 16,
             answer: 'Tout est parfait',
             question: 4
+        }, {
+            id: 17,
+            answer: 'Très bonne',
+            question: 6
+        }, {
+            id: 18,
+            answer: 'Bonne',
+            question: 6
+        }, {
+            id: 19,
+            answer: 'Moyenne',
+            question: 6
+        }, {
+            id: 20,
+            answer: 'Faible',
+            question: 6
+        }, {
+            id: 21,
+            answer: 'Très bonne',
+            question: 7
+        }, {
+            id: 22,
+            answer: 'Bonne',
+            question: 7
+        }, {
+            id: 23,
+            answer: 'Moyenne',
+            question: 7
+        }, {
+            id: 24,
+            answer: 'Faible',
+            question: 7
+        }, {
+            id: 25,
+            answer: 'Très bonne',
+            question: 8
+        }, {
+            id: 26,
+            answer: 'Bonne',
+            question: 8
+        }, {
+            id: 27,
+            answer: 'Moyenne',
+            question: 8
+        }, {
+            id: 28,
+            answer: 'Faible',
+            question: 8
+        }, {
+            id: 29,
+            answer: 'Très bonne',
+            question: 9
+        }, {
+            id: 30,
+            answer: 'Bonne',
+            question: 9
+        }, {
+            id: 31,
+            answer: 'Moyenne',
+            question: 9
+        }, {
+            id: 32,
+            answer: 'Faible',
+            question: 9
+        }, {
+            id: 33,
+            answer: 'Très bonne',
+            question: 10
+        }, {
+            id: 34,
+            answer: 'Bonne',
+            question: 10
+        }, {
+            id: 35,
+            answer: 'Moyenne',
+            question: 10
+        }, {
+            id: 36,
+            answer: 'Faible',
+            question: 10
+        }, {
+            id: 37,
+            answer: 'Fortement',
+            question: 11
+        }, {
+            id: 38,
+            answer: 'Moyennement',
+            question: 11
+        }, {
+            id: 39,
+            answer: 'Peu',
+            question: 11
+        }, {
+            id: 40,
+            question: 13
+        }, {
+            id: 41,
+            question: 14
+        }, {
+            id: 42,
+            question: 15
+        }, {
+            id: 43,
+            question: 16
+        }, {
+            id: 44,
+            question: 17
+        }, {
+            id: 45,
+            question: 18
+        }, {
+            id: 46,
+            question: 19
+        }, {
+            id: 47,
+            question: 20
+        }, {
+            id: 48,
+            question: 21
         } ])
         .exec(
             function( err, created ){

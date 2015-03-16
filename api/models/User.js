@@ -52,9 +52,8 @@ module.exports = {
         },
 
         quizzAnswers: {
-            collection: 'QuestionQuizzAnswer',
-            via: 'users',
-            dominant: true
+            collection: 'QuestionQuizzChoiceUser',
+            via: 'user'
         },
 
         roles: {

@@ -11,8 +11,12 @@ module.exports = {
 
         answer: {
             type: 'string',
-            required: true,
-            minLength: 1
+            defaultsTo: ''
+        },
+
+        type: {
+            type: 'integer',
+            defaultsTo: 0
         },
 
         question: {
@@ -20,9 +24,9 @@ module.exports = {
             required: true
         },
 
-        users: {
-            collection: 'User',
-            via: 'quizzAnswers'
+        usersChoices: {
+            collection: 'QuestionQuizzChoiceUser',
+            via: 'answer'
         }
     }
 };

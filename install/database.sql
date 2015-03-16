@@ -149,6 +149,7 @@ CREATE TABLE `questionquizz` (
   `question` varchar(255) DEFAULT NULL,
   `required` tinyint(1) DEFAULT NULL,
   `type` int(11) DEFAULT NULL,
+  `extra` longtext,
   `quizz` int(11) DEFAULT NULL,
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `createdAt` datetime DEFAULT NULL,
@@ -166,6 +167,7 @@ DROP TABLE IF EXISTS `questionquizzanswer`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `questionquizzanswer` (
   `answer` varchar(255) DEFAULT NULL,
+  `type` int(11) DEFAULT NULL,
   `question` int(11) DEFAULT NULL,
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `createdAt` datetime DEFAULT NULL,
@@ -175,16 +177,20 @@ CREATE TABLE `questionquizzanswer` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Table structure for table `questionquizzanswer_users__user_quizzanswers`
+-- Table structure for table `questionquizzchoiceuser`
 --
 
-DROP TABLE IF EXISTS `questionquizzanswer_users__user_quizzanswers`;
+DROP TABLE IF EXISTS `questionquizzchoiceuser`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `questionquizzanswer_users__user_quizzanswers` (
+CREATE TABLE `questionquizzchoiceuser` (
+  `type` int(11) DEFAULT NULL,
+  `extra` longtext,
+  `answer` int(11) DEFAULT NULL,
+  `user` int(11) DEFAULT NULL,
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `questionquizzanswer_users` int(11) DEFAULT NULL,
-  `user_quizzAnswers` int(11) DEFAULT NULL,
+  `createdAt` datetime DEFAULT NULL,
+  `updatedAt` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -440,5 +446,4 @@ CREATE TABLE `user` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-02-23 19:39:21
-
+-- Dump completed on 2015-03-13 19:13:38
