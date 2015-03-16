@@ -37,12 +37,12 @@ module.exports = {
 
         imported: {
             type: 'boolean',
-            defaultTo: false
+            defaultsTo: false
         },
 
         exported: {
             type: 'boolean',
-            defaultTo: false
+            defaultsTo: false
         },
 
         description: {
