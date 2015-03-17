@@ -135,8 +135,7 @@ module.exports = {
             User
                 .create( {
                     mail:     mail,
-                    password: password,
-                    roles:    [ 'ROLE_LOGIN', 'ROLE_VIEWER' ]
+                    password: password
                 } )
                 .exec( function( err, user ) {
                     if ( err ) {
