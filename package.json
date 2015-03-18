@@ -8,6 +8,7 @@
   "dependencies": {
     "aws-sdk": "^2.1.14",
     "bcrypt": "^0.8.1",
+    "connect-redis": "^2.2.0",
     "ejs": "^0.8.8",
     "grunt": "^0.4.2",
     "grunt-contrib-clean": "^0.5.0",
