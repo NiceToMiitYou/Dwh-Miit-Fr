@@ -132,7 +132,7 @@ function createClient( cb ) {
             id: 1,
             name: 'ITEvents',
             colorScheme: 'html {}',
-            logo: getUrl() + '/images/logodark.png'
+            logo: '//cdn.miit.fr/static/logo/990d99346dfa30601d31ac252ae697a3.png'
         }, {
             id: 2,
             name: 'SNCF',
@@ -161,7 +161,7 @@ function createConference( cb ) {
             description: 'ITEvents vous présente sa conférence de test grâce à Miit.',
             colorScheme: 'html {}',
             url: getUrl(),
-            logo: getUrl() + 'images/logodark.png',
+            logo: '//cdn.miit.fr/static/logo/990d99346dfa30601d31ac252ae697a3.png',
             restrictions: [],
             client: 1
         }, {
