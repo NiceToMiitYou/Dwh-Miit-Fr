@@ -480,12 +480,14 @@ function createQuizzQuestions( cb ) {
             id: 4,
             question: 'Qu\'est-ce qui pourrait vous aidez?',
             quizz: 2,
+            required: true,
             type: 2,
             conference: 1
         }, {
             id: 5,
             question: 'Avez-vous une bonne connaissances de l\'organisation SNCF concernant:',
             quizz: 3,
+            required: true,
             type: 0,
             conference: 2
         }, {
@@ -495,6 +497,7 @@ function createQuizzQuestions( cb ) {
                 small: true
             },
             quizz: 3,
+            required: true,
             type: 1,
             conference: 2
         }, {
@@ -504,6 +507,7 @@ function createQuizzQuestions( cb ) {
                 small: true
             },
             quizz: 3,
+            required: true,
             type: 1,
             conference: 2
         }, {
@@ -513,6 +517,7 @@ function createQuizzQuestions( cb ) {
                 small: true
             },
             quizz: 3,
+            required: true,
             type: 1,
             conference: 2
         }, {
@@ -522,6 +527,7 @@ function createQuizzQuestions( cb ) {
                 small: true
             },
             quizz: 3,
+            required: true,
             type: 1,
             conference: 2
         }, {
@@ -531,18 +537,21 @@ function createQuizzQuestions( cb ) {
                 small: true
             },
             quizz: 3,
+            required: true,
             type: 1,
             conference: 2
         }, {
             id: 11,
             question: 'Vous sentez vous concernés/impactés par les réorganisations en cours?',
             quizz: 3,
+            required: true,
             type: 1,
             conference: 2
         }, {
             id: 12,
             question: 'Avez-vous une bonne connaissance des offres au catalogue DSP SI TS:',
             quizz: 3,
+            required: true,
             type: 0,
             conference: 2
         }, {
@@ -552,6 +561,7 @@ function createQuizzQuestions( cb ) {
                 small: true
             },
             quizz: 3,
+            required: true,
             type: 3,
             conference: 2
         }, {
@@ -561,6 +571,7 @@ function createQuizzQuestions( cb ) {
                 small: true
             },
             quizz: 3,
+            required: true,
             type: 3,
             conference: 2
         }, {
@@ -570,6 +581,7 @@ function createQuizzQuestions( cb ) {
                 small: true
             },
             quizz: 3,
+            required: true,
             type: 3,
             conference: 2
         }, {
@@ -579,36 +591,42 @@ function createQuizzQuestions( cb ) {
                 small: true
             },
             quizz: 3,
+            required: true,
             type: 3,
             conference: 2
         }, {
             id: 17,
             question: 'Avez-vous une bonne connaissance des offres TM?',
             quizz: 3,
+            required: true,
             type: 3,
             conference: 2
         }, {
             id: 18,
             question: 'Quels sont vos difficultés / irritants (relations fournisseurs, manque de visibilité, ...)?',
             quizz: 3,
+            required: true,
             type: 3,
             conference: 2
         }, {
             id: 19,
             question: 'Quels sont les axes à développer (communication interne/externe, coordination inter offre, mise en qualité, ...)?',
             quizz: 3,
+            required: true,
             type: 3,
             conference: 2
         }, {
             id: 20,
             question: 'Quelles thématiques souhaitez vous aborder?',
             quizz: 3,
+            required: true,
             type: 3,
             conference: 2
         }, {
             id: 21,
             question: 'Divers, boîte à idées, suggestions...',
             quizz: 3,
+            required: true,
             type: 3,
             conference: 2
         } ])
