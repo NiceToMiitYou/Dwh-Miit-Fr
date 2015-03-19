@@ -29,6 +29,10 @@ module.exports = {
             database: process.env.MIIT_MYSQL_DB
         }
     },
+    
+    grunt: {
+        _hookTimeout: 1000000
+    },
 
     session: {
         adapter: 'redis',
