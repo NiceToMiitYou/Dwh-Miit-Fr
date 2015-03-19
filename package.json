@@ -8,7 +8,7 @@
   "dependencies": {
     "aws-sdk": "^2.1.14",
     "bcrypt": "^0.8.1",
-    "connect-redis": "^2.2.0",
+    "connect-redis": "1.4.5",
     "ejs": "^0.8.8",
     "grunt": "^0.4.2",
     "grunt-contrib-clean": "^0.5.0",
@@ -27,7 +27,8 @@
     "passport-http-bearer": "^1.0.1",
     "rc": "^0.5.5",
     "sails": "^0.11.0-rc10",
-    "sails-mysql": "^0.10.11"
+    "sails-mysql": "^0.10.11",
+    "socket.io-redis": "^0.1.4"
   },
   "devDependencies": {
     "supertest": "~0.13.0",
