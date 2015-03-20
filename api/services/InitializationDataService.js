@@ -381,31 +381,31 @@ function createResources( cb ) {
         .create( [ {
             id: 1,
             name: 'NotVisible',
-            path: 'http://img.wikinut.com/img/gycf69_-6rv_5fol/jpeg/0/Best-Friends-Img-Src%3AImage%3A-FreeDigitalPhotos.net.jpeg',
+            path: '//img.wikinut.com/img/gycf69_-6rv_5fol/jpeg/0/Best-Friends-Img-Src%3AImage%3A-FreeDigitalPhotos.net.jpeg',
             type: 'picture',
             category: 1
         }, {
             id: 2,
             name: 'Photo #1',
-            path: 'http://captainkimo.com/wp-content/uploads/2010/09/hdr-photo-1.jpg',
+            path: '//captainkimo.com/wp-content/uploads/2010/09/hdr-photo-1.jpg',
             type: 'picture',
             category: 2
         }, {
             id: 3,
             name: 'Photo #2',
-            path: 'http://www.sncf.com/ressources/imagecache/vsct_media_slideshow_image/images/packshot_nouvelletenue_694x380_carousel.png',
+            path: '//cdn.miit.fr/static/logo/bec3edd9646e394e6b2e4d6dcb29fed6.png',
             type: 'picture',
             category: 2
         }, {
             id: 4,
             name: 'Vidéo #1',
-            path: 'https://www.youtube.com/watch?v=y6Sxv-sUYtM',
+            path: '//www.youtube.com/watch?v=y6Sxv-sUYtM',
             type: 'youtube',
             category: 3
         }, {
             id: 5,
             name: 'Rapport #1',
-            path: 'http://www.nestle.com/asset-library/documents/library/documents/annual_reports/2013-annual-report-en.pdf',
+            path: '//www.nestle.com/asset-library/documents/library/documents/annual_reports/2013-annual-report-en.pdf',
             type: 'pdf',
             category: 4
         } ] )
