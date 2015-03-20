@@ -112,6 +112,10 @@ function createRoles( cb ) {
             user: 5,
             conference: 2,
             roles: [ 'ROLE_MASTER', 'ROLE_LIVE' ]
+        }, {
+            user: 5,
+            conference: 3,
+            roles: [ 'ROLE_MASTER', 'ROLE_LIVE' ]
         } ] )
         .exec(
             function( err, created ){
@@ -174,6 +178,16 @@ function createConference( cb ) {
             logo: '//cdn.miit.fr/static/logo/bec3edd9646e394e6b2e4d6dcb29fed6.png',
             restrictions: [],
             client: 2
+        }, {
+            id: 3,
+            name: 'Convention Managers Fret',
+            token: 'fret',
+            description: 'Bienvenue sur la convention du 7 et 8 avril 2015.',
+            colorScheme: 'html {}',
+            url: getUrl(),
+            logo: '//cdn.miit.fr/static/logo/bec3edd9646e394e6b2e4d6dcb29fed6.png',
+            restrictions: [],
+            client: 2
         } ] )
         .exec(
             function( err, created ) {
@@ -202,6 +216,12 @@ function createPresentations( cb ) {
             description: 'Description en attente',
             authors: 'En attente',
             conference: 2
+        }, {
+            id: 3,
+            name: 'Convention Managers Fret',
+            description: 'Il faudra encore patienter jusqu\'au 7 avril avant découvrir à 100% Miit!',
+            authors: 'Convention Managers Fret',
+            conference: 3
         } ] )
         .exec(
             function( err, created ){
@@ -262,6 +282,10 @@ function createSlides( cb ) {
             id: 11,
             content: '<img src="/images/slides/Diapositive01.png">',
             presentation: 2
+        }, {
+            id: 12,
+            content: '<img src="/images/slides/Diapositive01.png">',
+            presentation: 3
         } ] )
         .exec(
             function( err, created ){
@@ -287,6 +311,11 @@ function createChatrooms( cb ) {
             name: 'SNCF',
             type: 1,
             conference: 2
+        }, {
+            id: 3,
+            name: 'FRET',
+            type: 1,
+            conference: 3
         } ] )
         .exec(
             function( err, created ){
@@ -323,6 +352,10 @@ function createTags( cb ) {
             id: 5,
             name: 'Social',
             conference: 2
+        }, {
+            id: 6,
+            name: 'Convention',
+            conference: 3
         } ] )
         .exec(
             function( err, created ){
@@ -354,13 +387,12 @@ function createResourcesCategories( cb ) {
             conference: 1
         }, {
             id: 4,
-            name: 'Rapports',
-            isVisible: false,
-            conference: 1
-        }, {
-            id: 5,
             name: 'Sans titre',
             conference: 2
+        }, {
+            id: 5,
+            name: 'Informations pratiques',
+            conference: 3
         } ] )
         .exec(
             function( err, created ){
@@ -404,10 +436,16 @@ function createResources( cb ) {
             category: 3
         }, {
             id: 5,
-            name: 'Rapport #1',
-            path: '//www.nestle.com/asset-library/documents/library/documents/annual_reports/2013-annual-report-en.pdf',
+            name: 'Temporim Lyon - cité internationale',
+            path: '//cdn.miit.fr/static/documents/sncf/hotel_temporim.pdf',
             type: 'pdf',
-            category: 4
+            category: 5
+        }, {
+            id: 6,
+            name: 'Park & suites élégance - cité internationale',
+            path: '//cdn.miit.fr/static/documents/sncf/park_suites.pdf',
+            type: 'pdf',
+            category: 5
         } ] )
         .exec(
             function( err, created ){
@@ -424,7 +462,7 @@ function createResources( cb ) {
 function createQuizzes( cb ) {
 
     Quizz
-        .create([ {
+        .create( [ {
             id: 1,
             name: 'Premier quizz',
             description: 'Ceci est le questionnaire de test, il permet de tester les différentes fonctionnalités du quizz.',
@@ -439,7 +477,7 @@ function createQuizzes( cb ) {
             name: 'Test de connaissances',
             description: 'Bienvenue sur le test de connaissances du 24 mars 2015.',
             conference: 2
-        } ])
+        } ] )
         .exec(
             function( err, created ){
                 if( err ) {
