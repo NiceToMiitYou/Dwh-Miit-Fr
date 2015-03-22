@@ -23,6 +23,12 @@ module.exports = {
         users: {
             collection: 'User',
             via: 'slideAnswers'
+        },
+
+        toJSON: function toJSON() {
+            var obj = this.toObject();
+            obj.toJSON = null;
+            return obj;
         }
     }
 };

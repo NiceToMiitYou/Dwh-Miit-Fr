@@ -31,6 +31,12 @@ module.exports = {
                     ( new Date() ).getTime() + 2 * 60 * 1000
                 ); // Now + 2 minutes
             }
+        },
+
+        toJSON: function toJSON() {
+            var obj = this.toObject();
+            obj.toJSON = null;
+            return obj;
         }
     }
 };

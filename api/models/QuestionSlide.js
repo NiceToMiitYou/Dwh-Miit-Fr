@@ -28,6 +28,12 @@ module.exports = {
         answers: {
             collection: 'QuestionSlideAnswer',
             via: 'question'
+        },
+
+        toJSON: function toJSON() {
+            var obj = this.toObject();
+            obj.toJSON = null;
+            return obj;
         }
     }
 };
