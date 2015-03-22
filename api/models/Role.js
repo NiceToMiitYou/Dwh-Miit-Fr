@@ -21,6 +21,12 @@ module.exports = {
         roles : {
             type: 'array',
             required: true
+        },
+
+        toJSON: function toJSON() {
+            var obj = this.toObject();
+            obj.toJSON = null;
+            return obj;
         }
     }
 };

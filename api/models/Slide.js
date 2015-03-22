@@ -45,6 +45,12 @@ module.exports = {
             collection: 'Resource',
             via: 'slides',
             dominant: true
+        },
+
+        toJSON: function toJSON() {
+            var obj = this.toObject();
+            obj.toJSON = null;
+            return obj;
         }
     }
 };

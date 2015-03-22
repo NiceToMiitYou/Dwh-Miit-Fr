@@ -39,6 +39,12 @@ module.exports = {
         slides: {
             collection: 'Slide',
             via: 'presentation'
+        },
+
+        toJSON: function toJSON() {
+            var obj = this.toObject();
+            obj.toJSON = null;
+            return obj;
         }
     }
 };
