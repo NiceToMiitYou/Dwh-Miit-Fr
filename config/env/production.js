@@ -51,7 +51,7 @@ module.exports = {
         db:           'dwh-miit-fr'
     },
 
-    port: 80,
+    port: 8080,
   
     log: {
         level: 'silent'
