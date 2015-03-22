@@ -284,7 +284,7 @@ function createSlides( cb ) {
             presentation: 2
         }, {
             id: 12,
-            content: '<img src="/images/slides/Diapositive01.png">',
+            content: '<img src="//cdn.miit.fr/static/temp/sncf-slide.png">',
             presentation: 3
         } ] )
         .exec(
