@@ -13,17 +13,15 @@ module.exports = {
      */
     connect: function( req, res ) {
 
-        var conference = req.param( 'conference' ),
-            token      = req.param( 'token' );
+        var token = req.param( 'token' );
 
-        if( conference && token ) {
+        if( token ) {
             
             Session
                 .findOne( {
-                    conference: conference,
-                    token:      token,
+                    token:   token,
                     expire: {
-                        '>':    new Date()
+                        '>': new Date()
                     }
                 } )
                 .populate( 'user' )
@@ -33,9 +31,33 @@ module.exports = {
                         return res.notDone();
                     }
 
-                    return res.done( {
-                        user: session.user
-                    } );
+                    var defaultRes = {
+                        data:  session.data,
+                        user:  session.user,
+                        roles: [ 'ROLE_LOGIN', 'ROLE_VIEWER' ] 
+                    };
+
+                    if( session.data.conference &&
+                        session.data.conference.id ) {
+
+                        Role
+                            .findOne( {
+                                conference: session.data.conference.id,
+                                user:       session.user.id
+                            } )
+                            .exec( function( errRole, role ) {
+                                if( !errRole && role ) {
+
+                                    defaultRes.roles = _.union( defaultRes.roles, role.roles );
+                                }
+
+                                return res.done( defaultRes );
+                            } );
+
+                    } else {
+
+                        return res.done( defaultRes );
+                    }
                 } );
         } else {
 
@@ -48,9 +70,9 @@ module.exports = {
      */
     login: function( req, res ) {
 
-        var conference = req.param( 'conference' ),
-            mail       = req.param( 'mail' ),
-            password   = req.param( 'password' );
+        var data     = req.param( 'data' ),
+            mail     = req.param( 'mail' ),
+            password = req.param( 'password' );
 
         if( mail ) {
 
@@ -73,23 +95,22 @@ module.exports = {
                         if ( result ) {
 
                             SessionService
-                                .create( user, conference, function( err, targetLocation ) {
-
+                                .create( user, data, function( err, targetLocation ) {
                                     if( err ) {
                                     
                                         return res.notDone();
                                     }
 
                                     return res.done( {
-                                        location: targetLocation,
-                                        exist: true,
+                                        location:  targetLocation,
+                                        exist:     true,
                                         connected: true
                                     } );
                                 } );
                         } else {
 
                             return res.done( {
-                                exist: true,
+                                exist:     true,
                                 connected: false
                             } );
                         }
@@ -113,9 +134,8 @@ module.exports = {
 
             User
                 .create( {
-                    mail: mail,
-                    password: password,
-                    roles: [ 'ROLE_LOGIN', 'ROLE_VIEWER' ]
+                    mail:     mail,
+                    password: password
                 } )
                 .exec( function( err, user ) {
                     if ( err ) {

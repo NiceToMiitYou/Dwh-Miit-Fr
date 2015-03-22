@@ -20,17 +20,30 @@
  * http://sailsjs.org/#/documentation/concepts/Routes/RouteTargetSyntax.html
  */
 
-var _ = require('lodash');
 
-var authorizationRoutes = require( './routes/authorization.js' );
-var userRoutes = require( './routes/user.js' );
+function extend( target ) {
+    var sources = [].slice.call( arguments, 1 );
+
+    sources.forEach( function( source ) {
+        for ( var prop in source ) {
+            target[ prop ] = source[ prop ];
+        }
+    } );
+
+    return target;
+}
+
+
+var authorizationRoutes = require( './routes/authorization.js' ),
+    userRoutes          = require( './routes/user.js' ),
+    apiRoutes           = require( './routes/api.js' );
 
 var routes = {
     
 };
 
-module.exports.routes = _.extend(
-    routes,
-    authorizationRoutes,
-    userRoutes
-);
+extend( routes, authorizationRoutes,
+                userRoutes,
+                apiRoutes );
+
+module.exports.routes = routes;

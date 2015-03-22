@@ -1,5 +1,5 @@
 /**
- * QuestionQuizz.js
+ * QuestionQuizzChoiceUser.js
  *
  * @description :: TODO: You might write a short summary of how this model works and what it represents here.
  * @docs        :: http://sailsjs.org/#!documentation/models
@@ -9,33 +9,22 @@ module.exports = {
 
     attributes: {
 
-        question: {
-            type: 'string',
-            required: true,
-            minLength: 3
-        },
-
-        required: {
-            type: 'boolean',
-            defaultsTo: false
-        },
-
         type: {
             type: 'integer',
-            required: true
+            defaultsTo: 0
         },
 
         extra: {
             type: 'json'
         },
         
-        answers: {
-            collection: 'QuestionQuizzAnswer',
-            via: 'question'
+        answer: {
+            model: 'QuestionQuizzAnswer',
+            required: true
         },
 
-        quizz: {
-            model: 'Quizz',
+        user: {
+            model: 'User',
             required: true
         }
     }

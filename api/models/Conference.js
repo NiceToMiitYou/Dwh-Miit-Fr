@@ -35,6 +35,16 @@ module.exports = {
             unique: true
         },
 
+        imported: {
+            type: 'boolean',
+            defaultsTo: false
+        },
+
+        exported: {
+            type: 'boolean',
+            defaultsTo: false
+        },
+
         description: {
             type: 'text'
         },
@@ -65,6 +75,11 @@ module.exports = {
 
         tracks: {
             collection: 'Track',
+            via: 'conference'
+        },
+
+        roles: {
+            collection: 'Role',
             via: 'conference'
         },
 

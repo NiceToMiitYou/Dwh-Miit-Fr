@@ -40,7 +40,7 @@ module.exports = {
 
         deleted: {
             type: 'boolean',
-            defaultTo: false
+            defaultsTo: false
         }
     }
 };

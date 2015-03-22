@@ -30,21 +30,6 @@ function getRoles( controller, action ) {
     return roles;
 }
 
-function checkRoles( clientRoles, options ) {
-
-    // Get roles list
-    var roles = getRoles( options.controller, options.action );
-
-    // Check them from client
-    return _.reduce( roles, function( result, neededRole ) {
-
-        return result && _.contains(
-            clientRoles,
-            neededRole
-        );
-    }, true);
-}
-
 module.exports = {
 
     /**
@@ -54,5 +39,18 @@ module.exports = {
      * @description Check the roles of the client.
      *
      */
-    checkRoles: checkRoles
+    checkRoles: function( clientRoles, options ) {
+
+        // Get roles list
+        var roles = getRoles( options.controller, options.action );
+
+        // Check them from client
+        return _.reduce( roles, function( result, neededRole ) {
+
+            return result && _.contains(
+                clientRoles,
+                neededRole
+            );
+        }, true);
+    }
 };

@@ -52,13 +52,13 @@ module.exports = {
         },
 
         quizzAnswers: {
-            collection: 'QuestionQuizzAnswer',
-            via: 'users',
-            dominant: true
+            collection: 'QuestionQuizzChoiceUser',
+            via: 'user'
         },
 
         roles: {
-            type: 'array'
+            collection: 'Role',
+            via: 'user'
         },
 
         isCorrectPassword: function( password, cb ) {
