@@ -41,6 +41,12 @@ module.exports = {
         deleted: {
             type: 'boolean',
             defaultsTo: false
+        },
+
+        toJSON: function toJSON() {
+            var obj = this.toObject();
+            obj.toJSON = null;
+            return obj;
         }
     }
 };
