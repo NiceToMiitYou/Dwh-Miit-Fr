@@ -883,9 +883,7 @@ module.exports = {
     initialize: function( cb ) {
 
         if( sails.config.environment === 'development'   ||
-            sails.config.environment === 'qualification' ||
-            sails.config.environment === 'staging'       ||
-            sails.config.environment === 'production' ) {
+            sails.config.environment === 'qualification' ) {
             
             environment = sails.config.environment;
 
