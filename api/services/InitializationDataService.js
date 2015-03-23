@@ -425,7 +425,7 @@ function createResources( cb ) {
         }, {
             id: 3,
             name: 'Photo #2',
-            path: '//cdn.miit.fr/static/logo/bec3edd9646e394e6b2e4d6dcb29fed6.png',
+            path: 'http://cdn.miit.fr/static/logo/bec3edd9646e394e6b2e4d6dcb29fed6.png',
             type: 'picture',
             category: 2
         }, {
@@ -437,13 +437,13 @@ function createResources( cb ) {
         }, {
             id: 5,
             name: 'Temporim Lyon - cité internationale',
-            path: '//cdn.miit.fr/static/documents/sncf/hotel_temporim.pdf',
+            path: 'http://cdn.miit.fr/static/documents/sncf/hotel_temporim.pdf',
             type: 'pdf',
             category: 5
         }, {
             id: 6,
             name: 'Park & suites élégance - cité internationale',
-            path: '//cdn.miit.fr/static/documents/sncf/park_suites.pdf',
+            path: 'http://cdn.miit.fr/static/documents/sncf/park_suites.pdf',
             type: 'pdf',
             category: 5
         } ] )
