@@ -14,7 +14,7 @@ function getUrl() {
            break;
 
         case 'production':
-           url = 'http://app.miit.fr/';
+           url = 'https://app.miit.fr/';
            break;
     }
 
@@ -136,12 +136,12 @@ function createClient( cb ) {
             id: 1,
             name: 'ITEvents',
             colorScheme: 'html {}',
-            logo: '//cdn.miit.fr/static/logo/990d99346dfa30601d31ac252ae697a3.png'
+            logo: 'http://cdn.miit.fr/static/logo/990d99346dfa30601d31ac252ae697a3.png'
         }, {
             id: 2,
             name: 'SNCF',
             colorScheme: 'html {}',
-            logo: '//cdn.miit.fr/static/logo/bec3edd9646e394e6b2e4d6dcb29fed6.png'
+            logo: 'http://cdn.miit.fr/static/logo/bec3edd9646e394e6b2e4d6dcb29fed6.png'
         } ] )
         .exec(
             function( err, created ) {
@@ -165,7 +165,7 @@ function createConference( cb ) {
             description: 'ITEvents vous présente sa conférence de test grâce à Miit.',
             colorScheme: 'html {}',
             url: getUrl(),
-            logo: '//cdn.miit.fr/static/logo/990d99346dfa30601d31ac252ae697a3.png',
+            logo: 'http://cdn.miit.fr/static/logo/990d99346dfa30601d31ac252ae697a3.png',
             restrictions: [],
             client: 1
         }, {
@@ -175,7 +175,7 @@ function createConference( cb ) {
             description: 'Bienvenue sur la conférence du 24 mars 2015.',
             colorScheme: 'html {}',
             url: getUrl(),
-            logo: '//cdn.miit.fr/static/logo/bec3edd9646e394e6b2e4d6dcb29fed6.png',
+            logo: 'http://cdn.miit.fr/static/logo/bec3edd9646e394e6b2e4d6dcb29fed6.png',
             restrictions: [],
             client: 2
         }, {
@@ -185,7 +185,7 @@ function createConference( cb ) {
             description: 'Bienvenue sur la convention du 7 et 8 avril 2015.',
             colorScheme: 'html {}',
             url: getUrl(),
-            logo: '//cdn.miit.fr/static/logo/bec3edd9646e394e6b2e4d6dcb29fed6.png',
+            logo: 'http://cdn.miit.fr/static/logo/bec3edd9646e394e6b2e4d6dcb29fed6.png',
             restrictions: [],
             client: 2
         } ] )
@@ -284,7 +284,7 @@ function createSlides( cb ) {
             presentation: 2
         }, {
             id: 12,
-            content: '<img src="//cdn.miit.fr/static/temp/sncf-slide.png">',
+            content: '<img src="http://cdn.miit.fr/static/temp/sncf-slide.png">',
             presentation: 3
         } ] )
         .exec(
@@ -425,7 +425,7 @@ function createResources( cb ) {
         }, {
             id: 3,
             name: 'Photo #2',
-            path: '//cdn.miit.fr/static/logo/bec3edd9646e394e6b2e4d6dcb29fed6.png',
+            path: 'http://cdn.miit.fr/static/logo/bec3edd9646e394e6b2e4d6dcb29fed6.png',
             type: 'picture',
             category: 2
         }, {
@@ -437,13 +437,13 @@ function createResources( cb ) {
         }, {
             id: 5,
             name: 'Temporim Lyon - cité internationale',
-            path: '//cdn.miit.fr/static/documents/sncf/hotel_temporim.pdf',
+            path: 'http://cdn.miit.fr/static/documents/sncf/hotel_temporim.pdf',
             type: 'pdf',
             category: 5
         }, {
             id: 6,
             name: 'Park & suites élégance - cité internationale',
-            path: '//cdn.miit.fr/static/documents/sncf/park_suites.pdf',
+            path: 'http://cdn.miit.fr/static/documents/sncf/park_suites.pdf',
             type: 'pdf',
             category: 5
         } ] )
@@ -883,9 +883,7 @@ module.exports = {
     initialize: function( cb ) {
 
         if( sails.config.environment === 'development'   ||
-            sails.config.environment === 'qualification' ||
-            sails.config.environment === 'staging'       ||
-            sails.config.environment === 'production' ) {
+            sails.config.environment === 'qualification' ) {
             
             environment = sails.config.environment;
 
